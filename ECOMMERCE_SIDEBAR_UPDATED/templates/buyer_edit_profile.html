@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/buyer_edit_profile.css">
+    <title>Foodity - Dashboard</title>
+</head>
+<body>
+    <script src="static/Javascript/admin_edit_profile.js"></script>
+<!--#######################################-->
+<!--##############  B A S E  ##############-->
+<!--#######################################-->
+    <div class="base">
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                        <img class="button-img" src="../static/images/buyer/home/Sort.png" alt="Button" id="toggleButton" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="saved"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/saved_gray.png" alt="Save Icon"> </span> <span>Saved</span></a></li>
+                            <li class="Purchase History"><a href="/buyer_purchase_history"><img src="../static/images/buyer/sideNav/history_gray.png" alt="Purchase History Icon"> <span>Purchase History</span></a></li>
+                            <li class="settings">
+                                <a href="#" class="settings-button"><img src="../static/images/buyer/sideNav/settings_gray.png" alt="Add to Cart Icon"> <span>Settings</span></a>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li><a href="/buyer_profile">Profile</a></li>
+                                        <li><a href="/buyer_address">Address</a></li>
+                                        <li><a href="/buyer_change_password">Change Password</a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+        <div class="base_frame">
+
+            
+
+        <!--######################################################-->
+        <!--##############  E D I T  P R O F I L E  ##############-->
+        <!--######################################################-->
+
+        <div class="edit_profile">
+            <form action="/buyer_edit_profile/save" method="POST" enctype="multipart/form-data" charset="utf-8">
+            <div class="edit_profile_frame">
+                {% for profile in users %}
+                <div class="profile_picture">
+                    <img src="data:image/jpeg;base64, {{ profile.profile_pic }}" id="profile_pic">
+                </div>
+                <div class="input_on_profile">
+                    <label for="input_image">Upload Image</label>
+                    <input type="file" accept="image/jpeg,image/gif,image/png,image/x-eps" name="profile_pics" id="input_image" onchange="change_pic()">
+                </div>
+                <div class="user_details">
+                    <div class="name"> <!--###  N A M E  ###-->
+                        <div class="first_name_frame"> <!--###  F I R S T  N A M E  ###-->
+                            <div class="first_name_label">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class= "first_name_box">
+                                    <input type="text" name="first_name" id="first_name" value="{{ profile.firstName }}">
+                            </div>
+                        </div>
+                        <div class="last_name_frame"> <!--###  L A S T  N A M E  ###-->
+                            <div class="last_name_label">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                            <div class= "last_name_box"> 
+                                <input type="text" name="last_name" id="last_name" value="{{ profile.lastName }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password"> <!--###  P A S S  ###-->
+                        <div class="pass_frame"> <!--###  P A S S W O R D  ###-->
+                            <div class="pass_label">
+                                <label for="pass">Password</label>
+                            </div>
+                            <div class= "pass_box">
+                                    <input type="password" name="pass" id="pass" value="{{ profile.password }}">
+                            </div>
+                        </div>
+                        <div class="confirm_pass_frame"> <!--###  C O N F I R M  P A S S  ###-->
+                            <div class="confirm_pass_label">
+                                <label for="confirm_pass">Confirm Password</label>
+                            </div>
+                            <div class= "confirm_pass_box"> 
+                                <input type="password" name="confirm_pass" id="confirm_pass" value="{{ profile.password }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email"> <!--###  E M A I L  ###-->
+                        <div class="email_frame"> 
+                            <div class="email_label">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class= "email">
+                                    <input type="email" name="email" id="email" value="{{ profile.email }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address"> <!--###  A D D R E S S   ###-->
+                        <div class="barangay_frame">
+                            <div class="barangay_label">
+                                <label for="barangay">Barangay</label>
+                            </div>
+                            <div class= "barangay_box"> 
+                                <input type="text" name="barangay" id="barangay" value="{{ profile.barangay }}">
+                            </div>
+                        </div>
+                        <div class="city_frame">
+                            <div class="city_label">
+                                <label for="city">City</label>
+                            </div>
+                            <div class= "city_box"> 
+                                <input type="text" name="city" id="city" value="{{ profile.city }}">
+                            </div>
+                        </div>
+                    
+                        <div class="province_frame">
+                            <div class="province_label">
+                                <label for="province">Province</label>
+                            </div>
+                            <div class= "province_box"> 
+                                <input type="text" name="province" id="province" value="{{ profile.province }}">
+                            </div>
+                        </div>
+
+                        <div class="zipcode_frame">
+                            <div class="zipcode_label">
+                                <label for="zipcode">Zipcode</label>
+                            </div>
+                            <div class= "zipcode_box"> 
+                                <input type="text" name="zipcode" id="zipcode" value="{{ profile.zip_code }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="save_button">
+                        <button name="saveButton" type="submit">Save</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+

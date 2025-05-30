@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/foodity icon.png">
+    <link rel="stylesheet" href="static/buyer_saved.css">
+    <title>Foodity - Notification Products</title>
+</head>
+<body>
+
+    <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="Messages"><a href="/buyer_messages"><img src="../static/images/buyer/sideNav/message.png" alt="Messages Icon"> </span> <span>Messages</span></a></li>
+                            <li class="Notif"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/notification.png" alt="Notif Icon"> </span> <span>Notification</span></a></li>
+                            <li class="My Purchase"><a href="/buyer_MyPurchase"><img src="../static/images/buyer/sideNav/mypurchase.png" alt="My Purchase Icon"> <span>My Purchase</span></a></li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle">
+                <div class="buyer_notification_frame">
+                        <div class="Notification_text">
+                            <h1>Notification</h1>
+                        </div>
+                        
+                            
+        
+            </div>
+        </div>
+    </div>
+</body>
+</html>

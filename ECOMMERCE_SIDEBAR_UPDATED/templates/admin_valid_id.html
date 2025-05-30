@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="refresh" content="1">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_valid_id.css">
+    <title>Foodity - Valid ID</title>
+</head>
+<body>
+    <div class="base">
+        {% for ids in accounts %}
+        <img src="data:image/jpeg;base64, {{ ids.valid_id }}" class="photo_image">
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,694 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+
+/*############################################*/
+/*############## ITL = ITALIC ################*/
+/*############################################*/
+
+@font-face { 
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+/*######################################################################################################*/
+/*#######################################  D E S I G N  C O D E  #######################################*/
+/*######################################################################################################*/
+
+/*#########################################################################################*/
+/*#######################################  B O D Y  #######################################*/
+/*#########################################################################################*/
+
+body{
+    background: #eeee;
+    color: rgb(10, 6, 6);
+}
+
+/*#############################################################################################*/
+/*#######################################  T O P N A V  #######################################*/
+/*#############################################################################################*/
+
+.topNav{
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.topNav_frame{
+    display: flex;
+    justify-content: space-between;
+}
+
+.topNav_frame .left .foodity_logo img{
+    width: 250px;
+    height: auto;
+}
+
+.topNav_frame .right{
+    display: flex;
+}
+
+.topNav_frame .right .message img{
+    width: 50px;
+    height: auto;
+}
+
+.topNav_frame .right .notification img{
+    width: 45px;
+    height: auto;
+}
+
+.message_square{
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 15px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.notif_square{
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 15px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.profile_square{
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+/*##############################################*/
+/*#########  P R O F I L E  I N F O  ###########*/
+/*##############################################*/
+
+.profile_info{
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.topNav_frame .right .profile .profile_button{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    margin-top: -1px;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.topNav_frame .right .profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*#########################################################################################*/
+/*#######################################  B A S E  #######################################*/
+/*#########################################################################################*/
+
+.base{
+    display: flex;
+    width: 100%;
+    background-color: #eeee;
+}
+
+.base_frame{
+    width: 100%;
+}
+
+
+/*################################################################################################*/
+/*#######################################  S I D E  N A V  #######################################*/
+/*################################################################################################*/
+
+/* Sidebar */
+.sideNav {
+    width: 15%;
+    background-color: white;
+    transition: width 0.3s;
+    box-shadow: 4px 0px 12px #c4c4c4;
+    height: 100vh;
+}
+
+.sideNav.collapsed {
+    width: 60px;
+}
+
+.sideNav_frame {
+    padding-top: 25px;
+    text-align: left; /* Align content to the left */
+}
+
+.sideNav_frame .foodity_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.foodity_logo img {
+    margin-left: -10px;
+    left: 10px;
+    width: 180px;
+    height: auto;
+}
+
+.sideNav_frame .foodity_logo .button-img {
+    margin-left: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.sideNav.collapsed .foodity_logo img {
+    display: none;
+}
+
+.sideNav.collapsed .foodity_logo .button-img {
+    display: block;
+}
+
+/* Adjust the menu to display icons and text properly when expanded */
+.sideNav_frame .menu {
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.sideNav_frame .menu ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.sideNav_frame .menu ul li a {
+    display: flex;
+    align-items: center;
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+    width: 100%; /* Ensure full width */
+    padding: 10px 0; /* Add padding for equal height */
+    padding-left: 20px; /* Add left padding for alignment */
+}
+
+.sideNav_frame .menu ul li a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.sideNav_frame .menu ul li a:hover,
+.sideNav_frame .menu ul li a:focus {
+
+}
+
+.sideNav_frame .menu ul li a span {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Hide text when collapsed */
+.sideNav.collapsed .menu ul li a span {
+    display: none;
+}
+
+.sideNav_frame .menu ul .settings {
+}
+
+.sideNav_frame .menu ul .settings .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: none;
+    padding: 5px 0;
+    border: none;
+    width: 100%; /* Match width of parent */
+}
+
+.sideNav_frame .menu ul .settings:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 5px 20px; /* Adjusted padding to bring items closer */
+}
+
+.dropdown ul li a {
+    color: gray;
+    text-decoration: none;
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+}
+
+.dropdown ul li:not(:last-child) {
+    margin-bottom: 5px; /* Reduce space between items */
+}
+
+/* Sidebar Effects */
+.sideNav_frame .menu ul li:hover,
+.sideNav_frame .menu ul li:focus-within {
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+/*#####################################*/
+/*#########  P R O F I L E  ###########*/
+/*#####################################*/
+
+.profile{
+    position: absolute;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    bottom: 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.profile .profile_info{
+    display: flex;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.profile .profile_button{
+    border: none;
+    width: 55px;
+    height: 55px;
+    background-color: white;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+
+
+.profile_dropdown{
+    bottom: 0;
+    margin-bottom: 170px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 2px 2px 4px #c4c4c4;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}
+
+/*########################################################################################################*/
+/*#######################################  E D I T  P R O F I L E  #######################################*/
+/*########################################################################################################*/
+
+.edit_profile{
+    margin-top: 100px;
+    width: 100%;
+}
+
+.edit_profile_frame{
+    margin-left: 50px;
+    width: 90%;
+}
+
+/*##################################################*/
+/*#########  P R O F I L E  P I C T U R E  #########*/
+/*##################################################*/
+
+.profile_picture{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.profile_picture img{
+    width: 250px;
+    height: 250px;
+    border-radius: 500px;
+    border: 2px solid;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  U P L O A D  #########*/
+/*################################################*/
+
+.input_on_profile{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.input_on_profile input{
+    display: none;
+}
+
+.input_on_profile label{
+    font-family: sf_bold;
+    border-radius: 20px;
+    background-color: #9D4EDD;
+    font-size: 20px;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px #c4c4c4;
+}
+
+.input_on_profile label:hover{
+    transition: .5s linear;
+    font-family: sf_bold;
+    border-radius: 20px;
+    background-color: #5f10a0;
+    font-size: 20px;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px #c4c4c4;
+}
+
+/*##################################################*/
+/*#########  P R O F I L E  D E T A I L S  #########*/
+/*##################################################*/
+
+.user_details{
+    width: 100%;
+    margin-top: 50px;
+}
+
+/*#############################*/
+/*#########  N A M E  #########*/
+/*#############################*/
+
+.name{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.first_name_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.last_name_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.name input[type='text']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.name input[type='text']:focus{
+    border: 3px solid #9D4EDD;
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*###############################*/
+/*#########  E M A I L  #########*/
+/*##############################*/
+
+.email{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.email_frame{
+    margin-top: 20px;
+}
+
+.email_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+
+.email input[type='email']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.email input[type='email']:focus{
+    border: 3px solid #9D4EDD;
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*#####################################*/
+/*#########  P A S S W O R D  #########*/
+/*#####################################*/
+
+.password{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pass_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.confirm_pass_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.password input[type='password']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.password input[type='password']:focus{
+    border: 3px solid #9D4EDD;
+    width: 400px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*#####################################*/
+/*#########  A D D R E S S  #########*/
+/*#####################################*/
+
+.address{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.barangay_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.city_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.province_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.zipcode_label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+.address input[type='text']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.address input[type='text']:focus{
+    border: 3px solid #9D4EDD;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*##########################################*/
+/*#########  S A V E  B U T T O N  #########*/
+/*##########################################*/
+
+.save_button{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.save_button button{
+    font-size: 20px;
+    font-family: SF_MEDIUM;
+    border-color: #9D4EDD;
+    background-color: #9D4EDD;
+    color: white;
+    width: 400px;
+    height: 45px;
+    border-radius: 8px
+}
+
+.save_button button:hover{
+    transition: .5s linear;
+    background-color: #5c1696;
+}

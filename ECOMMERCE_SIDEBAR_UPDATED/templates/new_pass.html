@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Foodity - OTP</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="static/new_pass.css">
+
+<body>
+    <!--#########################################################-->
+    <!--###############  N E W  P A S S  F O R M  ###############-->
+    <!--#########################################################-->
+<form action="/new_pass" method="POST">
+    <div class="new_pass_main_frame">
+        <div class="new_pass_logo_frame">
+            <img src="../static/images/foodity_logo.png" alt="Foodity">
+        </div>
+            
+            <!--<div class="login_text"> -->
+                <!--<h1>Login</h1> -->
+            <!--</div> -->
+        <div class="textbox_frame">
+            <div class="new_pass_frame">
+                <label for="new_pass">New Password</label> 
+                <div class="new_pass_box">
+                    <input type="password" id="new_pass" name="new_pass" placeholder="Enter New Password" required>
+                </div>
+            </div>
+            <div class="confirm_new_pass_frame">
+                <label for="new_pass">Confirm New Password</label> 
+                <div class="confirm_new_pass_box">
+                    <input type="password" id="confirm_new_pass" name="confirm_new_pass" placeholder="Confirm New Password" required>
+                </div>
+            </div>
+        </div>
+        <div class="msg">{{msg}}</div>
+        <div class="msg2">{{msg2}}</div>
+        <div class="new_pass_button_frame">
+                <button id="save_new_pass" name="save_new_pass" type="submit">SAVE</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+
+/*############################################*/
+/*############## ITL = ITALIC ################*/
+/*############################################*/
+
+@font-face { 
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+/*######################################################################################################*/
+/*#######################################  D E S I G N  C O D E  #######################################*/
+/*######################################################################################################*/
+
+/*#########################################################################################*/
+/*#######################################  B O D Y  #######################################*/
+/*#########################################################################################*/
+
+body{
+    background: white;
+    color: rgb(10, 6, 6);
+}
+
+/*#############################################################################################*/
+/*#######################################  T O P N A V  #######################################*/
+/*#############################################################################################*/
+
+.topNav{
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.topNav_frame{
+    display: flex;
+    justify-content: space-between;
+}
+
+.topNav_frame .left .foodity_logo img{
+    width: 250px;
+    height: auto;
+    margin-top: -10px;
+}
+
+.topNav_frame .right{
+    display: flex;
+}
+
+.topNav_frame .right .message img{
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.topNav_frame .right .notification img{
+    width: 45px;
+    height: auto;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+
+.topNav_frame .right .profile .profile_button{
+    background-image: url(/static/images/admin/dashboard/profile.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    margin-top: -1px;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.topNav_frame .right .profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*#########################################################################################*/
+/*#######################################  B A S E  #######################################*/
+/*#########################################################################################*/
+
+.base_frame{
+    display: flex;
+}
+
+
+/*################################################################################################*/
+/*#######################################  S I D E  N A V  #######################################*/
+/*################################################################################################*/
+
+.sideNav{
+    width: 20%;
+}
+
+.sideNav_frame{
+    margin-top: 50px;
+    margin-left: 40px;
+    z-index: -2;
+}
+
+.sideNav_frame .menuText{
+    font-family: SF_MEDIUM;
+}
+
+.sideNav_frame .menu{
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul li{
+    margin-left: 10px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .dashboard{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .orders{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .delivery{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .products{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .sales_report{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul li a{
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+}
+
+.sideNav_frame .toolsText{
+    font-family: SF_MEDIUM;
+}
+
+.sideNav_frame .tools{
+    margin-top: 20px;
+}
+
+.sideNav_frame ul li{
+    list-style: none;
+}
+
+.sideNav_frame ul li a{
+    text-decoration: none;
+    font-family: SF_MEDIUM;
+    font-size: 20px;
+    color: gray;
+}
+
+/*#############################################*/
+/*#########  S I D E  N A V  I M G  ###########*/
+/*#############################################*/
+
+
+.sideNav_frame img{
+    vertical-align: bottom;
+    width: 30px;
+    height: auto;
+}
+
+/*###################################################*/
+/*#########  S I D E  N A V  E F F E C T S  #########*/
+/*###################################################*/
+
+.sideNav_frame .menu ul .dashboard li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .orders li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .delivery li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .products li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .sales_report li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul li a:hover{
+    background-repeat: no-repeat;
+    color: #9D4EDD;
+}
+
+.sideNav_frame .menu ul .user_management:hover{
+    background-repeat: no-repeat;
+}
+
+.sideNav_frame .tools ul li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .tools ul li a:hover{
+    color: #9D4EDD;
+}
+
+/*###############################################################################################*/
+/*#######################################  O P T I O N S  #######################################*/
+/*###############################################################################################*/
+
+.order_options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 85%;
+}
+
+.order-option {
+    font-family: SF_MEDIUM;
+    font-size: 19px;
+    background-color: #ffffff;
+    color: #240046;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-option:hover {
+    background-color: #ffffff;
+}
+
+.order-option:active {
+    background-color: #ffffff;
+}
+
+/*###############################################################################################*/
+/*#######################################  M E S S A G E  #######################################*/
+/*###############################################################################################*/
+
+.seller_message{
+    margin-left: 20px;
+    width: 100%;
+}
+
+.message{
+    margin-left: 50px;
+    width: 100%;
+}
+
+.message_frame{
+    margin-top: 10px;
+}
+
+.message_text{
+    font-family: SF_BOLD;
+    font-size: 50px;
+}
+
+
+/*##################################################################################*/
+/*#########################  M E S S A G E  F R A M E S  #########################*/
+/*##################################################################################*/
+
+.message_base_frame{
+    width: 100%;
+}
+
+.message_base_subframe{
+    display: flex;
+    width: 90%;
+}
+
+.message_left_frame{
+    width: 10%;
+}
+
+.message_scroll_frame{
+    scrollbar-width: none;
+    box-shadow: 6px 0px 10px #c4c4c4;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    margin-top: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 20px;
+    height: 100vh;
+}
+
+.message_right_frame{
+    width: 10%;
+}
+
+/*################################################################################*/
+/*#########################  F E E D B A C K  V A L U E  #########################*/
+/*################################################################################*/
+
+.message_value_frame{
+    margin-top: 1%;
+    width: 98%;
+    background-color: white;
+    box-shadow: 0px 0px 10px #9c9c9c;
+    height: 150px;
+    border-radius: 12px;
+    margin-left: 1%;
+    padding: 15px;
+    display: flex;
+}
+
+.message_image_frame{
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    border: 2px solid;
+}
+
+.message_text_frame{
+    margin-left: 20px;
+    width: 85%;
+    height: 120px;
+    border-radius: 12px;
+}
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+.profile_dropdown{
+    top: 95px;
+    right: 150px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: #dddddd;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}

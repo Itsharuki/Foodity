@@ -1,0 +1,788 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+
+/*############## ITL = ITALIC ################*/
+@font-face { 
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+/*############################################*/
+/*#########  D E S I G N  C O D E  ###########*/
+/*############################################*/
+
+
+/*##############################*/
+/*#########  B O D Y  ###########*/
+/*###############################*/
+
+body{
+    background-image: url(/static/images/bg.jpg);
+    background-size: cover;
+    background-color: white;
+    color: black;
+}
+
+.bg_frame{
+    display: flex;
+    justify-content: center;
+}
+
+/*########################################*/
+/*#########  R E G  F R A M E  ###########*/
+/*########################################*/
+
+.reg_frame{
+    margin: 100px;
+    background-color: #F9F9F9;
+    width: 790px;
+    height: 1020px;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 12px black;
+}
+
+/*###############################*/
+/*#########  L O G O  ###########*/
+/*###############################*/
+
+.logo_frame{
+    margin-top: 20px;
+}
+
+.logo_frame img{
+    width: 218px;
+    height: auto;
+}
+
+/*#####################################*/
+/*#########  T E X T B O X  ###########*/
+/*#####################################*/
+
+.textbox_frame{
+    margin-top: 33px;
+}
+
+.textbox_frame label{
+    font-family: SF_MEDIUM;
+    margin-left: 10px;
+}
+
+/*###############################*/
+/*#########  N A M E  ###########*/
+/*###############################*/
+
+.textbox_frame .fName_frame input[type='text']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .fName_frame input[type='text']:focus{
+    border: 3px solid #9D4EDD;
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .lName_frame input[type='text']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .lName_frame input[type='text']:focus{
+    border: 3px solid #9D4EDD;
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*#################################*/
+/*#########  E M A I L  ###########*/
+/*#################################*/
+
+.textbox_frame input[type='email']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame input[type='email']:focus{
+    border: 3px solid #9D4EDD;
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*#######################################*/
+/*#########  P A S S W O R D  ###########*/
+/*#######################################*/
+
+.textbox_frame input[type='password']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame input[type='password']:focus{
+    border: 3px solid #9D4EDD;
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+
+.fNameBox{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.lNameBox{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.emailBox{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.passBox{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.addressBox{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/*######################################*/
+/*#####  A D D R E S S  F R A M E  #####*/
+/*######################################*/
+
+.address_frame{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.address_text h1{
+    font-family: SF_bold;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+/*############################################*/
+/*#####  A D D R E S S  S U B F R A M E  #####*/
+/*############################################*/
+
+.address_subframe{
+    width: 100%;
+}
+
+/*######################################*/
+/*#####  A D D R E S S  L I N E 1  #####*/
+/*######################################*/
+
+.address_line1{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.textbox_frame .barangay_frame input[type='text']{
+    border: 2px solid rgb(192, 192, 192);
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .barangay_frame input[type='text']:focus{
+    border: 3px solid #9D4EDD;
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .city_frame select{
+    border: 2px solid rgb(192, 192, 192);
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 5px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .city_frame select:focus{
+    border: 3px solid #9D4EDD;
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 5px;
+    font-family: SF_MEDIUM;
+}
+
+.region, .province, .city, .brgy {
+    width: 100%;
+}
+
+/*######################################*/
+/*#####  A D D R E S S  L I N E 2  #####*/
+/*######################################*/
+
+.address_line2{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.textbox_frame .province_frame select{
+    border: 2px solid rgb(192, 192, 192);
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .province_frame select:focus{
+    border: 3px solid #9D4EDD;
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .region_frame select{
+    border: 2px solid rgb(192, 192, 192);
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 5px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame .region_frame select:focus{
+    border: 3px solid #9D4EDD;
+    width: 335px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 5px;
+    font-family: SF_MEDIUM;
+}
+
+
+/*########################################*/
+/*#####  A C C O U N T  C H O I C E  #####*/
+/*########################################*/
+
+.account_type_frame{
+    margin-top: 10px;
+}
+
+.account_choice{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.textbox_frame select{
+    border: 2px solid rgb(192, 192, 192);
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+.textbox_frame select:focus{
+    border: 3px solid #9D4EDD;
+    width: 682px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: SF_MEDIUM;
+}
+
+/*#################################*/
+/*#########  T E R M S  ###########*/
+/*#################################*/
+
+.msg{
+    text-align: center;
+    color: rgb(15, 126, 0);
+    font-family: sf_bold;
+}
+
+.terms{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.terms input[type='checkbox']{
+    margin-left: 10px;
+}
+
+.terms label{
+    font-family: SF_MEDIUM;
+}
+
+.terms_link{
+    color: #9D4EDD;
+    font-family: sf_bold;
+}
+
+/*######################################*/
+/*#########  I M G  V I E W  ###########*/
+/*######################################*/
+
+.buyer_upload_frame img{
+    width: 100px;
+}
+
+.seller_upload_frame img{
+    width: 100px;
+}
+
+/*#####################################*/
+/*#########  U P L O A D S  ###########*/
+/*#####################################*/
+
+#buyer_frame_upload{
+    opacity: 0;
+    display: none;
+}
+
+#buyer_frame_upload.active{
+    display: flex;
+    margin-top: 20px;
+    opacity: 1;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#seller_frame_upload{
+    opacity: 0;
+    display: none;
+}
+
+#seller_frame_upload.active{
+    display: flex;
+    margin-top: 20px;
+    opacity: 1;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#seller_frame_upload2{
+    opacity: 0;
+    display: none;
+}
+
+#seller_frame_upload2.active{
+    display: flex;
+    margin-top: 20px;
+    opacity: 1;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.buyer_upload_frame{
+    display: flex;
+    justify-content: center;
+}
+
+.buyer_upload_frame label{
+    font-family: sf_medium;
+    font-size: 20px;
+    padding: 50px;
+    border: 1px dashed;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.buyer_upload_frame label:hover{
+    transition: .6s;
+    color: white;
+    border-color: white;
+    background-color: #9D4EDD;
+}
+
+.seller_upload_frame label{
+    font-family: sf_medium;
+    font-size: 20px;
+    padding: 50px;
+    border: 1px dashed;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.seller_upload_frame label:hover{
+    transition: .6s;
+    color: white;
+    border-color: white;
+    background-color: #9D4EDD;
+}
+
+
+.seller_upload_frame{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.seller_upload_frame label{
+    text-align: center;
+    font-family: sf_medium;
+    font-size: 20px;
+}
+
+.upload_files input{
+    display: none;
+}
+
+/*#####################################*/
+/*#########  M E S S A G E  ###########*/
+/*#####################################*/
+
+.msg2{
+    color: red;
+    font-family: sf_bold;
+    text-align: center;
+    font-size: 15px;
+}
+
+.profile_pic_default{
+    display: none;
+}
+
+/*########################################*/
+/*#####   S I G N  U P  B U T T O N  #####*/
+/*########################################*/
+
+.signup_button{
+    text-align: center;
+}
+
+.signup_button button{
+    font-size: 20px;
+    font-family: SF_MEDIUM;
+    border-color: #9D4EDD;
+    background-color: #9D4EDD;
+    color: white;
+    width: 682px;
+    height: 45px;
+    border-radius: 8px
+}
+
+.signup_button button:hover{
+    transition: .5s linear;
+    font-size: 20px;
+    font-family: SF_MEDIUM;
+    border-color: #6c27a5;
+    background-color: #6c27a5;
+    color: white;
+    width: 682px;
+    height: 45px;
+    border-radius: 8px
+}
+
+/*#################################*/
+/*#####   L O G I N  L I N K  #####*/
+/*#################################*/
+
+.login_page{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login_page a{
+    font-family: sf_regular;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+/*######################################################################################################*/
+/*#######################################  T E R M S  P O P U P  #######################################*/
+/*######################################################################################################*/
+
+/*##################################################*/
+/*######  T E R M S  &  C O N D I T I O N S  #######*/
+/*##################################################*/
+
+#popup_terms{
+    margin: 100px;
+    background-color: #F9F9F9;
+    width: 790px;
+    height: 1020px;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 2px 2px 12px black;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    opacity: 0;
+    margin-top: -1800px;
+    visibility: hidden;
+
+}
+
+#popup_terms.active{
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    transition: .6s linear;
+    margin-top: -1100px;
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+
+.background#blur.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+/*###############################*/
+/*#########  L O G O  ###########*/
+/*###############################*/
+
+.terms_conditions_logo_frame{
+    margin-top: 20px;
+}
+
+.terms_conditions_logo_frame img{
+    width: 218px;
+    height: auto;
+}
+
+/*###############################*/
+/*#########  T E X T  ###########*/
+/*###############################*/
+
+
+.terms_conditions_text{
+    margin-top: 20px;
+    width: 100%;
+    overflow-y: auto;
+    height: 80%;
+    margin-bottom: 40px;
+}
+
+.terms_conditions_text p{
+    width: 100%;
+    word-wrap: break-word;
+    font-family: sf_medium;
+}
+
+/*###############################*/
+/*######  C O N T E N T  ########*/
+/*###############################*/
+
+
+.termsTitle{
+    font-family: "SF_BLACK";
+    font-size: 30px;
+}
+
+
+.Terms_1{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+.Terms_2{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+
+.Terms_3{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_4{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_5{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_6{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_7{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_8{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_9{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_10{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_11{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_12{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_13{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_14{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_15{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_16{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.Terms_17{
+    font-family: "SF_BOLD";
+    font-size: 20px;
+}
+
+.disclamer {
+    font-family: "SF_BOLD";
+}
+
+
+
+/*########################################*/
+/*#####   S I G N  U P  B U T T O N  #####*/
+/*########################################*/
+
+.agree_button{
+    text-align: center;
+}
+
+.agree_button button{
+    font-size: 20px;
+    font-family: SF_MEDIUM;
+    border-color: #9D4EDD;
+    background-color: #9D4EDD;
+    color: white;
+    width: 682px;
+    height: 45px;
+    border-radius: 8px
+}
+
+
+

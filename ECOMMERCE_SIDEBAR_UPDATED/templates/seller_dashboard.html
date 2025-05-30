@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/seller_dashboard.css">
+    <title>Foodity - Dashboard</title>
+</head>
+<body onload="countRow()">
+    <script src="static/Javascript/seller_dashboard.js"></script>
+    
+    <!--############################################-->
+    <!--##############  N A V  B A R  ##############-->
+    <!--############################################-->
+
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <a href="/seller_message"><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <div class="profile_info">
+                        {% for user in users %}
+                        <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                        <h1> {{ user.email }} </h1>
+                        {% endfor %}
+                    </div>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="/seller_edit_profile">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+    <div class="base">
+        <div class="base_frame">
+
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="seller_dashboard.html"><img src="/static/images/seller/dashboard-icon@1x.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="orders">
+                                <li>
+                                    <a href="/seller_orders"><img src="/static/images/seller/orders-icon.png" alt=""> Orders</a>
+                                </li>
+                            </div>
+                            <div class="delivery">
+                                <li>
+                                    <a href="/seller_delivery"><img src="/static/images/seller/delivery-icon.png" alt=""> Delivery</a>
+                                </li>
+                            </div>
+                            <div class="products">
+                                <li>
+                                    <a href="/seller_products"><img src="/static/images/seller/products-icon.png" alt=""> Products</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/seller_sales"><img src="/static/images/seller/file-icon@1x.png" alt=""> Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        <!--#################################################-->
+        <!--##############  D A S H B O A R D  ##############-->
+        <!--#################################################-->
+        
+            <div class="seller_dashboard">
+                <div class="dashboard_frame">
+                    <div class="dashboard_frame_totals">
+                        <div class="total_orders">
+                            <div class="orders_square">
+                                <img src="../static/images/seller/total-order-icon.png" alt="">
+                            </div>
+                            <div class="orders_text">
+                                {% for totalOrder in totalOrders %}
+                                <h1>{{ totalOrder.total }}</h1>
+                                {% endfor %}
+                                <p>Total Orders</p>
+                            </div>
+                        </div>
+                        <div class="total_delivered">
+                            <div class="delivered_square">
+                                <img src="../static/images/seller/delivered-icon.png" alt="">
+                            </div>
+                            <div class="delivered_text">
+                                {% for delivered in deliver %}
+                                <h1>{{ delivered.delivered }}</h1>
+                                {% endfor %}
+                                <p>Delivered</p>
+                            </div>
+                        </div>
+                        <div class="total_cancelled">
+                            <div class="cancelled_square">
+                                <img src="../static/images/seller/cancelled-icon.png" alt="">
+                            </div>
+                            <div class="cancelled_text">
+                                {% for cancelled in cancel %}
+                                <h1>{{ cancelled.cancelled }}</h1>
+                                {% endfor %}
+                                <p>Cancelled</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+
+
+                    <div class="dashboard_text">
+                        <p>Order Statistics</p>
+
+                        <!--################################################
+
+                        ####################################################
+                        ##############  D A T E  P I C K E R  ##############
+                        ####################################################
+
+                        <div class="filter_frame">
+                            <div class="date_picker_from">
+                                <label for="date_from">from: </label>
+                                <div class="date_from">
+                                    <input type="date" id="date_from" name="date_from"><span></span><input type="time" name="time_from" id="time_from">
+                                </div>
+                            </div>
+                            <div class="date_picker_to">
+                                <label for="date_to">to: </label>
+                                <div class="date_to">
+                                    <input type="date" id="date_to" name="date_to"><span></span><input type="time" name="time_to" id="time_to">
+                                </div>
+                            </div>
+                            <div class="filter_submit">
+                            </div>
+                        </div>
+                    </div>
+                        #################################################-->
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="bar_chart"></canvas>
+                        <script>
+                            
+                            new Chart("bar_chart", {
+                                type: "bar",
+                                data: {
+                                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                    datasets: [{
+                                    label: 'Number of Sales',
+                                    data: [120, 200, 300, 400, 450, 530, 400, 500, 750, 450, 650, 1000],
+                                    borderWidth: 1,
+                                    backgroundColor: [
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(153, 102, 255)',
+                                    ],
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                    }
+                                }
+                                });
+                        </script>
+                    </div>
+
+</body>
+</html>

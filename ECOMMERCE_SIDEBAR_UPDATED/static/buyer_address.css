@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+/*############## ITL = ITALIC ################*/
+@font-face {
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+
+/*###############################*/
+/*#########  B O D Y  ###########*/
+/*###############################*/
+
+body {
+    background: white;
+    color: rgb(10, 6, 6);
+    width: 100%;
+}
+
+/*##########################################*/
+/*#########  B A S E  F R A M E  ###########*/
+/*##########################################*/
+
+.base{
+    width: 100%;
+}
+
+.base_frame {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Sidebar */
+.sideNav {
+    width: 15%;
+    background-color: #EEEEEE;
+    transition: width 0.3s;
+    height: 100vh;
+}
+
+.sideNav.collapsed {
+    width: 60px;
+}
+
+.sideNav_frame {
+    padding-top: 25px;
+    text-align: left; /* Align content to the left */
+}
+
+.sideNav_frame .foodity_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.foodity_logo img {
+    margin-left: -10px;
+    left: 10px;
+    width: 180px;
+    height: auto;
+}
+
+.sideNav_frame .foodity_logo .button-img {
+    margin-left: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.sideNav.collapsed .foodity_logo img {
+    display: none;
+}
+
+.sideNav.collapsed .foodity_logo .button-img {
+    display: block;
+}
+
+/* Adjust the menu to display icons and text properly when expanded */
+.sideNav_frame .menu {
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.sideNav_frame .menu ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.sideNav_frame .menu ul li a {
+    display: flex;
+    align-items: center;
+    font-family: "SF_REGULAR";
+    text-decoration: none;
+    color: gray;
+    width: 100%; /* Ensure full width */
+    padding: 10px 0; /* Add padding for equal height */
+    padding-left: 20px; /* Add left padding for alignment */
+}
+
+.sideNav_frame .menu ul li a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+
+.sideNav_frame .menu ul li a span {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Hide text when collapsed */
+.sideNav.collapsed .menu ul li a span {
+    display: none;
+}
+
+
+.sideNav_frame .menu ul .settings .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: none;
+    padding: 5px 0;
+    border: none;
+    width: 100%; /* Match width of parent */
+}
+
+.sideNav_frame .menu ul .settings:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 5px 20px; /* Adjusted padding to bring items closer */
+}
+
+.dropdown ul li a {
+    color: gray;
+    text-decoration: none;
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+}
+
+.dropdown ul li:not(:last-child) {
+    margin-bottom: 5px; /* Reduce space between items */
+}
+
+/* Sidebar Effects */
+.sideNav_frame .menu ul li:hover,
+.sideNav_frame .menu ul li:focus-within {
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+
+
+
+/*##################################################*/
+/*############  P R O F I L E  F R A M E  ###############*/
+/*#################################################*/
+
+.middle{
+    width: 85%;
+}
+
+.address{
+    width: 100%;
+    height: 100% auto;
+}
+
+.address-frame{
+    padding: 50px;
+    margin-top: 50px;
+    width: 90%;
+}
+
+
+
+
+
+
+
+/* ########################################################
+################## A D D R E S S C O N T A I N E R ################
+########################################################### */
+
+.address-container {
+    max-width: 100%;
+    background-color: #fff;
+    padding: 20px;  
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.address-container h1 {
+    font-family: "SF_BLACK";
+    text-align: center;
+    color: #333;
+}
+
+.address {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+}
+
+.address:last-child {
+    border-bottom: none;
+}
+
+.address h2 {
+    font-family: "SF_BOLD";
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.address p {
+    font-family: "SF_MEDIUM";
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.default {
+    display: inline-block;
+    background-color: #9D4EDD;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.type {
+    display: inline-block;
+    background-color: #2196f3;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.actions button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.actions button:hover {
+    background-color: #f0f0f0;
+}
+
+.add-new {
+    font-family: "SF_BLACK";
+    display: block;
+    width: 100%;
+    background-color: #9D4EDD;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.add-new:hover {
+    background-color: #9D4EDD;
+}

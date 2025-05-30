@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/seller_products_update.css">
+    <title>Foodity - Products</title>
+</head>
+<body class="background" id="blur">
+    
+    <!--############################################-->
+    <!--##############  N A V  B A R  ##############-->
+    <!--############################################-->
+
+    <script src="static/Javascript/seller_products.js"></script>
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <a href="/seller_message"><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <div class="profile_info">
+                        {% for user in users %}
+                        <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                        <h1> {{ user.email }} </h1>
+                        {% endfor %}
+                    </div>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="/seller_edit_profile">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+    <div class="base">
+        <div class="base_frame">
+
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/seller_dashboard"><img src="/static/images/seller/dashboard-icon@1x.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="orders">
+                                <li>
+                                    <a href="/seller_orders"><img src="/static/images/seller/orders-icon.png" alt=""> Orders</a>
+                                </li>
+                            </div>
+                            <div class="delivery">
+                                <li>
+                                    <a href="/seller_delivery"><img src="/static/images/seller/delivery-icon.png" alt=""> Delivery</a>
+                                </li>
+                            </div>
+                            <div class="products">
+                                <li>
+                                    <a href="/seller_products"><img src="/static/images/seller/products-icon.png" alt=""> Products</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/seller_sales"><img src="/static/images/seller/file-icon@1x.png" alt=""> Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+                    <!--######################################################-->
+                    <!--##############  E D I T  P R O D U C T  ##############-->
+                    <!--######################################################-->
+
+            <form action='/seller_products/save_edit_product' method='POST' enctype="multipart/form-data" charset="utf-8">
+                <div id="edit_form" class="add_form_frame">
+                    <div class="form_content">
+                        <h2>Edit Product</h2>
+                        <div id="add_product_form">
+                            <label for="productName">Product Name:</label>
+                            {% for products in edit_product %}
+                            <input type="text" id="productName" name="productName" placeholder="Add your product name" value="{{ products.product_name }}" required>
+        
+                            <label for="productPrice">Product Price (₱):</label>
+                            <input type="number" id="productPrice" name="productPrice" placeholder="Add your price" value="{{ products.product_price }}" required>
+                            <label for="productStocks">Product Stocks:</label>
+                            <input type="number" id="productStocks" name="productStocks" placeholder="Add your stocks" value="{{ products.product_stocks }}" required>
+                            <label for="variant">Variants:</label>
+                            <div class="add_variants">
+                                <input type="text" id="variant" name="variant" placeholder="Add your variants" value="{{ products.product_variants }}" required>
+                            </div>
+                            <div class="product_description">
+                                <label for="product_description">Product Description:</label>
+                                <textarea id="product_description" name="product_description" required rows="4" cols="50" placeholder="Description..." >{{ products.product_description }}</textarea>
+                            </div>
+                            
+                            <div class="product_categories">
+                                <select name="product_categories_dropdown" id="product_categories_dropdown" required>
+                                    <option selected disabled>{{ products.product_categories }}</option>
+                                    <option value="1">Fruit and Vegetables</option>
+                                    <option value="2">Confectionery</option>
+                                    <option value="3">Cereals</option>
+                                    <option value="4">Edible Ices</option>
+                                    <option value="5">Dairy</option>
+                                    <option value="6">Bakery</option>
+                                    <option value="7">Nonperishable Items</option>
+                                    <option value="8">Sweet Beverages</option>
+                                </select>
+                            </div>
+
+                            <div class="product_image_view">
+                                <img src="data:image/jpeg;base64, {{ products.product_photo1 }}" id="image_view1">
+                                <img src="data:image/jpeg;base64, {{ products.product_photo2 }}" id="image_view2">
+                                <img src="data:image/jpeg;base64, {{ products.product_photo3 }}" id="image_view3">
+                                <img src="data:image/jpeg;base64, {{ products.product_photo4 }}" id="image_view4">
+                            </div>
+
+                            <div class="product_image">
+                                <label for="productImage1">Upload</label>
+                                <input type="file" id="productImage1" name="productImage1" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic1()">
+                                <label for="productImage2">Upload</label>
+                                <input type="file" id="productImage2" name="productImage2" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic2()">
+                                <label for="productImage3">Upload</label>
+                                <input type="file" id="productImage3" name="productImage3" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic3()">
+                                <label for="productImage4">Upload</label>
+                                <input type="file" id="productImage4" name="productImage4" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic4()">
+                            </div>
+                            <button type="submit" class="action-btn add-btn">Save Product</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

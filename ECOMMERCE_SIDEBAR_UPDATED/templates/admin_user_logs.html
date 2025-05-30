@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_user_logs.css">
+    <title>Foodity - User Management</title>
+</head>
+<body>
+    <!--#####################################-->
+    <!--#############  B A S E  #############-->
+    <!--#####################################-->
+
+    <div class="base">
+
+        <!--############################################-->
+        <!--#############  S I D E  N A V  #############-->
+        <!--############################################-->
+
+        <div class="sideNav">
+            <div class="sideNav_frame">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+                <div class="menuText">
+                    <p>Menu</p>
+                </div>
+                <div class="menu">  
+                    <ul>
+                        <div class="dashboard">
+                            <li>
+                            <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                            </li>
+                        </div>
+                        <div class="user_management">
+                            <li>
+                                <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                            </li>
+                        </div>
+                        <div class="user_analytics">
+                            <li>
+                                <a href="/user_logs"><img src="/static/images/sideNav/user_analytics_purple.png" alt=""> User Logs</a>
+                            </li>
+                        </div>
+                        <div class="feedbacks">
+                            <li>
+                                <a href="/feedbacks"><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                            </li>
+                        </div>
+                        <div class="sales_report">
+                            <li>
+                                <a href="/admin_sales_report"><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--################################################-->
+        <!--#############  B A S E  F R A M E  #############-->
+        <!--################################################-->
+
+        <div class="base_frame">
+
+            <!--##########################################-->
+            <!--#############  T O P  N A V  #############-->
+            <!--##########################################-->
+
+            <div class="topNav">
+                <div class="topNav_frame">
+                    <div class="left">
+                        
+                    </div>
+                    <div class="right">
+                        <div class="message_square">
+                            <div class="message">
+                                <img src="/static/images/admin/dashboard/messages.png" alt="">
+                            </div>
+                        </div>
+                        <div class="notif_square">
+                            <div class="notification">
+                                <img src="/static/images/admin/dashboard/notif.png" alt="">
+                            </div>
+                        </div>
+                        <div class="profile_square">
+                            <div class="profile">
+                                <div class="profile_info">
+                                    {% for user in users %}
+                                    <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                    <h1> {{ user.email }} </h1>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/admin_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--##########################################################-->
+            <!--####################  U S E R  L O G S  ##################-->
+            <!--##########################################################-->
+
+            <div class="user_logs">
+                <div class="user_logs_frame">
+                    <div class="user_logs_background">
+                        <div class="user_logs_text">
+                            <p>User Logs</p>
+                        </div>
+                        <!--###########################################-->
+                        <!--##############  F I L T E R  ##############-->
+                        <!--###########################################-->
+    
+                        <div class="filter_frame">
+                            <div class="filter">
+                                <div class="filter_button">
+                                    <button class="button_filter"></button>
+    
+                                    <!--############################################################-->
+                                    <!--##############  F I L T E R  D R O P  D O W N ##############-->
+                                    <!--############################################################-->
+    
+                                    <div class="filter_dropdown">
+                                        <div id="dropdown_filter" class="filter_dropdown_content">
+                                            <a  href="/user_management/filter_buyer">buyer</a>
+                                            <a  href="/user_management/filter_seller">seller</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="search_frame">
+                                    <div class="search_bar">
+                                        <input type="text" placeholder="Search">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <!--#########################################-->
+                            <!--##############  T A B L E  ##############-->
+                            <!--#########################################-->
+                            
+                        <div class="user_logs_table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Account Type</th>
+                                        <th>Logged in</th>
+                                        <th>Logged out</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in accounts %}
+                                    <tr>
+                                        <td> {{ user.name }} </td>
+                                        <td> {{ user.email }} </td>
+                                        <td> {{ user.acc_type }} </td>
+                                        <td> {{ user.logged_in }} </td>
+                                        <td> {{ user.logged_out }} </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

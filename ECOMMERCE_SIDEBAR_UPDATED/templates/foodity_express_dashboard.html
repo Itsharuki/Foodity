@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/foodity_express_dashboard.css">
+    <title>Foodity Express - Dashboard</title>
+</head>
+
+<!--#######################################-->
+<!--##############  B A S E  ##############-->
+<!--#######################################-->
+    <div class="base">
+            
+        <div class="topNav">
+            <div class="topNav_frame">
+                <div class="left">
+                    
+                </div>
+                <div class="right">
+                    <div class="message_square">
+                        <div class="message">
+                            <a href=""><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="notif_square">
+                        <div class="notification">
+                            <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="profile_square">
+                        <div class="profile">
+                            <div class="profile_info">
+                            {% for user in users %}
+                            <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                            <h1> {{ user.email }} </h1>
+                            {% endfor %}
+                            </div>
+                            <!--##############################################################-->
+                            <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                            <!--##############################################################-->
+
+                            <div class="profile_dropdown">
+                                <div id="dropdown_profile" class="profile_dropdown_content">
+                                    <a  href="/admin_edit_profile">Edit Profile</a>
+                                    <a  href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+        <div class="base_frame">
+            <!--#################################################-->
+            <!--##############  D A S H B O A R D  ##############-->
+            <!--#################################################-->
+            <div class="dashboard">
+                <div class="dashboard_frame">
+                    <div class="dashboard_text">
+                        <p>Dashboard</p>
+                    </div>
+                    <div class="dashboard_body">
+                        <div class="for_delivery_box">
+                            <div class="icon_forDelivery">
+                                <img src="/static/images/courier/dashboard/for_delivery.png" alt="">
+                            </div>
+                            <div class="for_delivery_count">
+                                <p>20</p>
+                            </div>
+                            <div class="for_delivery_name">
+                                <p>For Delivery</p>
+                            </div>
+                        </div>
+                        <div class="on_delivery_box">
+                            <div class="icon_Delivery">
+                                <img src="/static/images/courier/dashboard/on_delivery.png"" alt="">
+                            </div>
+                            <div class="on_delivery_count">
+                                <p>200</p>
+                            </div>
+                            <div class="on_delivery_name">
+                                <p>On Delivery</p>
+                            </div>
+                        </div>
+                        <div class="delivered_box">
+                            <div class="icon_Delivered">
+                                <img src="/static/images/courier/dashboard/delivered.png"" alt="">
+                            </div>
+                            <div class="delivered_count">
+                                <p>2000</p>
+                            </div>
+                            <div class="delivered_name">
+                                <p>Delivered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

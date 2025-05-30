@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_user_approvals.css">
+    <title>Foodity - User Management</title>
+</head>
+<body>
+    <script src="static/Javascript/user_management.js"></script>
+    <!--##########################################-->
+    <!--#############  N A V  B A R  #############-->
+    <!--##########################################-->
+
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <img src="/static/images/admin/dashboard/messages.png" alt="">
+                </div>
+                <div class="notification">
+                    <img src="/static/images/admin/dashboard/notif.png" alt="">
+                </div>
+                <div class="profile">
+                    <button onclick="showDropdown()" class="profile_button"></button>
+                    
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="base">
+        <div class="base_frame">
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">  
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="user_management">
+                                <li>
+                                    <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                                </li>
+                            </div>
+                            <div class="seller_approvals">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/seller_approvals_purple.png" alt=""> Seller Approvals</a>
+                                </li>
+                            </div>
+                            <div class="user_analytics">
+                                <li>
+                                    <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                                </li>
+                            </div>
+                            <div class="feedbacks">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="toolsText">
+                        <p>Tools</p>
+                    </div>
+                    <div class="tools">
+                        <ul>
+                            <div class="settings">
+                                <li>
+                                    <a href="/settings"><img src="/static/images/sideNav/settings.png" alt=""> Settings</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="user_approvals">
+                <div class="user_approvals_frame">
+                    <div class="user_approvals_text">
+                        <p>Seller Approvals</p>
+                        <div class="filter_frame">
+                            <div class="date_picker_from">
+                                <label for="date_from">from: </label>
+                                <div class="date_from">
+                                    <input type="date" id="date_from" name="date_from"><span></span><input type="time" name="time_from" id="time_from">
+                                </div>
+                            </div>
+                            <div class="date_picker_to">
+                                <label for="date_to">to: </label>
+                                <div class="date_to">
+                                    <input type="date" id="date_to" name="date_to"><span></span><input type="time" name="time_to" id="time_to">
+                                </div>
+                            </div>
+                            <div class="filter_submit">
+                                <input type="submit" name="filter" id="filter">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user_approvals_table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Account Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in accounts %}
+                                <tr>
+                                    <td> {{ user.name }} </td>
+                                    <td> {{ user.email }} </td>
+                                    <td> {{ user.account_type }} </td>
+                                    <td> 
+                                        {% if user.status == 1 %}
+                                        <span class='active'>Active</span>
+                                        {% else %}
+                                        <span class='inactive'>Inactive</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                    <div class="actions">
+                                        <div class="approveAction">
+                                            <a href="/user_approvals/seller_approve/{{user.accounts_id}}">
+                                            <img src="/static/images/admin/user_approval/approve.png" alt="approve">
+                                            </a>
+                                        </div>
+                                        <div class="declineAction">
+                                            <a href="">
+                                            <img src="/static/images/admin/user_approval/decline.png" alt="decline">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

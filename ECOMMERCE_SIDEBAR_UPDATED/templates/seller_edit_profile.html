@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/seller_edit_profile.css">
+    <title>Foodity - Dashboard</title>
+</head>
+<body>
+    <script src="static/Javascript/admin_edit_profile.js"></script>
+    
+    <!--############################################-->
+    <!--##############  N A V  B A R  ##############-->
+    <!--############################################-->
+
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <a href="/seller_message"><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <div class="profile_info">
+                        {% for user in users %}
+                        <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                        <h1> {{ user.email }} </h1>
+                        {% endfor %}
+                    </div>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+    <div class="base">
+        <div class="base_frame">
+
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/seller_dashboard"><img src="/static/images/seller/dashboard-icon@1x.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="orders">
+                                <li>
+                                    <a href="/seller_orders"><img src="/static/images/seller/orders-icon.png" alt=""> Orders</a>
+                                </li>
+                            </div>
+                            <div class="delivery">
+                                <li>
+                                    <a href="/seller_delivery"><img src="/static/images/seller/delivery-icon.png" alt=""> Delivery</a>
+                                </li>
+                            </div>
+                            <div class="products">
+                                <li>
+                                    <a href="/seller_products"><img src="/static/images/seller/products-icon.png" alt=""> Products</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/seller_sales"><img src="/static/images/seller/file-icon@1x.png" alt=""> Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        <!--######################################################-->
+        <!--##############  E D I T  P R O F I L E  ##############-->
+        <!--######################################################-->
+
+        <div class="edit_profile">
+            <form action="/seller_edit_profile/save" method="POST" enctype="multipart/form-data" charset="utf-8">
+            <div class="edit_profile_frame">
+                {% for profile in users %}
+                <div class="profile_picture">
+                    <img src="data:image/jpeg;base64, {{ profile.profile_pic }}" id="profile_pic">
+                </div>
+                <div class="input_on_profile">
+                    <label for="input_image">Upload Image</label>
+                    <input type="file" accept="image/jpeg,image/gif,image/png,image/x-eps" name="profile_pics" id="input_image" onchange="change_pic()">
+                </div>
+                <div class="user_details">
+                    <div class="name"> <!--###  N A M E  ###-->
+                        <div class="first_name_frame"> <!--###  F I R S T  N A M E  ###-->
+                            <div class="first_name_label">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class= "first_name_box">
+                                    <input type="text" name="first_name" id="first_name" value="{{ profile.firstName }}">
+                            </div>
+                        </div>
+                        <div class="last_name_frame"> <!--###  L A S T  N A M E  ###-->
+                            <div class="last_name_label">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                            <div class= "last_name_box"> 
+                                <input type="text" name="last_name" id="last_name" value="{{ profile.lastName }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password"> <!--###  P A S S  ###-->
+                        <div class="pass_frame"> <!--###  P A S S W O R D  ###-->
+                            <div class="pass_label">
+                                <label for="pass">Password</label>
+                            </div>
+                            <div class= "pass_box">
+                                    <input type="password" name="pass" id="pass" value="{{ profile.password }}">
+                            </div>
+                        </div>
+                        <div class="confirm_pass_frame"> <!--###  C O N F I R M  P A S S  ###-->
+                            <div class="confirm_pass_label">
+                                <label for="confirm_pass">Confirm Password</label>
+                            </div>
+                            <div class= "confirm_pass_box"> 
+                                <input type="password" name="confirm_pass" id="confirm_pass" value="{{ profile.password }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="save_button">
+                        <button name="saveButton" type="submit">Save</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+<div class=edit_profiles>
+            
+</div>

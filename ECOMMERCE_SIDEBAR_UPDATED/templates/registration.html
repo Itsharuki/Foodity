@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/regform.css">
+
+    <title>Foodity - Registration</title>
+</head>
+<body>
+    <script src="static/Javascript/registration.js"></script>
+    <div class="background" id="blur">
+        <div class="bg_frame">
+            <div class="reg_frame" id="registration_frame">
+                <form action="/register" method="POST" enctype="multipart/form-data" charset="utf-8">
+                    <div class="logo_frame">
+                        <img src="/static/images/foodity_logo.png" alt="Foodity">
+                    </div>
+
+                    <div class="textbox_frame">
+                        <div class="fName_frame">
+                            <label for="firstName">First Name</label>
+                            <div class="fNameBox">
+                                <input type="text" name="firstName" id="firstName" placeholder="Enter your First name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="lName_frame">
+                            <label for="lastName">Last Name</label>
+                            <div class="lNameBox">
+                                <input type="text" name="lastName" id="lastName" placeholder="Enter your Last name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="email_frame">
+                            <label for="email">Email Address</label>
+                            <div class="emailBox">
+                                <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+                            </div>
+                        </div>
+
+                        <div class="pass_frame">
+                            <label for="password">Password</label>
+                            <div class="passBox">
+                                <input type="password" name="password" id="password" placeholder="Enter your Password" required>
+                            </div>
+                        </div>
+
+                        <div class="confirm_pass_frame">
+                            <label for="confirm_password">Confirm Password</label>
+                            <div class="passBox">
+                                <input type="password" name="confirm_password" id="confirm_password" placeholder="Enter your Password" required>
+                            </div>
+                        </div>
+                        
+                        <div class="address_frame">
+                            <div class="address_text">
+                                <h1>Address</h1>
+                            </div>
+                            <div class="address_subframe">
+                                <div class="address_line1">
+                                    <div class='region_frame'>
+                                        <label for="region">Region</label>
+                                        <select name="region" id="region" onchange="populateProvinces()" required>
+                                            <option value="" disabled selected>Select a region</option>
+                                        </select>
+                                    </div>
+
+                                    <div class='province_frame'>
+                                        <label for="province">Province</label>
+                                        <select name="province" id="province" onchange="populateCities()" required>
+                                            <option value="" disabled selected>Select a province</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="address_line2">
+                                    <div class='city_frame'>
+                                        <label for="city">City/Municipality</label>
+                                        <select name="city" id="city" required>
+                                            <option value="" disabled selected>Select a city/municipality</option>
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    <div class='barangay_frame'>
+                                        <label for="brgy">House No., Street, Barangay</label>
+                                        <input type="text" name="brgy" id="brgy" required> 
+                                    </div>
+                            </div>
+                        </div>  
+
+                        <div class="account_type_frame">
+                            <label for="accountType">Account type</label>
+                        </div>
+
+                        <div class="account_choice">
+                            <select name="account_type_dropdown" id="account_type_dropdowns" placeholder="Choose an account" onclick="seller_func()" required>
+                                <option selected disabled>Choose an Account</option>
+                                <option value="seller" onclick="seller_func()">Seller</option>
+                                <option value="buyer">Buyer</option>
+                                <option value="courier">Courier</option>
+                            </select>
+                        </div>
+
+                        <div class="buyer_upload_frame" >
+                            <div class="upload_files" id="buyer_frame_upload">
+                                <img src="/static/images/seller/products/image_placeholder.svg" id="buyer_valid_id_view">
+                                <label for="buyer_valid_id">Valid ID:</label>
+                                <input type="file" id="buyer_valid_id" name="buyer_valid_id" accept="image/jpeg,image/gif,image/png,image/x-eps" onchange="buyer_valid_id_js()">
+                            </div>
+                        </div>
+
+                        <div class="seller_upload_frame" >
+                            <div class="upload_files" id="seller_frame_upload">
+                                <img src="/static/images/seller/products/image_placeholder.svg" id="seller_valid_id_view">
+                                <label for="seller_valid_id">Valid ID:</label>
+                                <input type="file" id="seller_valid_id" name="seller_valid_id" accept="image/jpeg,image/gif,image/png,image/x-eps" onchange="seller_valid_id_js()">
+                            </div>
+                            <div class="upload_files" id="seller_frame_upload2">
+                                <img src="/static/images/seller/products/image_placeholder.svg" id="seller_documents_view">
+                                <label for="seller_documents">Seller Documents:</label>
+                                <input type="file" id="seller_documents" name="seller_documents" accept="image/jpeg,image/gif,image/png,image/x-eps" onchange="seller_documents_js()">
+                            </div>
+                        </div>
+                        <div class="msg2">{{msg2}}</div>
+
+                        <div class="terms">
+                            <input type="checkbox" name="terms" id="terms" required>
+                            <label for="terms">I have read and agree to <a href="#blur" class="terms_link" onclick="pop_up_terms()">terms and conditions</a></label>
+                        </div>
+
+                        <div class="signup_button">
+                            <button name="signupButton" type="submit" >Sign up</button>
+                        </div>
+                </form>
+                    <div class="login_page">
+                        <a href="/">Back to Login</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!--#####################################################-->
+    <!--##############  P O P  U P  T E R M S  ##############-->
+    <!--#####################################################-->
+
+    <div class="terms_and_condition_frame" id="popup_terms">
+        <div class="terms_conditions_logo_frame">
+            <img src="/static/images/foodity_logo.png" alt="Foodity">
+        </div>
+        <div class="terms_conditions_text">
+            <p>
+                <span class="termsTitle">Terms and Conditions for Foodity</span> <br>
+                Last Updated: Date <br> <br>
+                
+                
+                <span class="Terms_1"> 1. Acceptance of Terms </span> <br>
+                By accessing or using the FOODITY website "Site" and any services or products provided, you agree to be bound by these Terms and Conditions "Terms". If you do not agree with any part of these Terms, you must not use our Site.
+                <br> <br>
+
+
+
+                <span class="Terms_2"> 2. Eligibility </span> <br>
+                To use the Site and purchase products, you must be at least 18 years old or have the legal capacity to enter into a binding contract in your jurisdiction.
+                <br> <br>
+
+
+                <span class="Terms_3"> 3. Account Registration </span> <br> 
+                You may be required to create an account to access certain features of the Site, including placing orders. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.
+                <br> <br>
+
+
+                <span class="Terms_4"> 4. Product Information </span> <br> 
+                We make every effort to provide accurate and up-to-date product descriptions, prices, and availability. However, we do not guarantee that the information is error-free. Prices and availability are subject to change without notice.
+                <br> <br>
+
+
+                <span class="Terms_5 "> 5. Orders and Payments </span> <br> 
+                Order Acceptance: All orders are subject to acceptance by us. We reserve the right to refuse or cancel an order for any reason, including issues with payment, stock availability, or suspected fraud.<br> 
+                Payment Methods: We accept various payment methods, including credit cards, debit cards, PayPal, and other secure payment methods specified on the Site. You agree to provide accurate billing information for all transactions.<br> 
+                Pricing: Prices are listed in <b>Philippine Peso</b>, and applicable taxes and shipping fees will be added at checkout. All prices are subject to change without notice.<br> 
+                <br> <br>
+                
+                
+                <span class="Terms_6 ">6. Shipping and Delivery</span> <br> 
+                We will make reasonable efforts to ship orders promptly. However, delivery times may vary based on your location, shipping method, and product availability. We are not responsible for delays caused by the courier or other third parties.
+                <br> <br>
+
+                
+                <span class="Terms_7 "> 7. Returns and Refunds </span> <br> 
+                Our return and refund policy can be found at [Link to Return Policy]. In general, you have the right to return most products within [X] days of receiving your order. Returned products must be in original condition, unused, and in their original packaging.
+                <br> <br>
+
+
+                <span class="Terms_8 "> 8. Intellectual Property </span> <br> 
+                All content on the Site, including text, images, logos, graphics, videos, and software, is the property of [Your Website Name] or its licensors and is protected by intellectual property laws. You may not reproduce, distribute, or modify any content without our express permission.
+                <br> <br>
+
+                <span class="Terms_9 "> 9. Privacy and Data Protection </span> <br> 
+                Your use of our Site is governed by our [Privacy Policy]. We take your privacy seriously and are committed to protecting your personal information. Please review our Privacy Policy to understand how we collect, use, and protect your data.
+
+                <br> <br>
+
+
+                <span class="Terms_10 "> 10. Prohibited Activities </span> <br> 
+                You agree not to engage in the following activities while using our Site: <br>
+                - Engaging in fraudulent or illegal activities<br>
+                - Posting or transmitting harmful content such as viruses, malware, or spam<br>
+                - Attempting to hack or disrupt the Site’s functionality<br>
+                - Violating any laws, regulations, or third-party rights<br>
+                <br> <br>
+
+                
+
+                <span class="Terms_11 "> 11. Limitation of Liability </span> <br> 
+                To the maximum extent permitted by law, [Your Website Name] is not liable for any indirect, incidental, or consequential damages resulting from your use or inability to use the Site, including loss of profits or data. Our total liability is limited to the amount paid by you for the product or service that gave rise to the claim.
+
+                <br> <br>
+
+                <span class="Terms_12 "> 12. Indemnification  </span> <br> 
+                You agree to indemnify, defend, and hold harmless [Your Website Name], its officers, employees, agents, and affiliates from any claims, losses, liabilities, damages, and expenses arising from your use of the Site, including violations of these Terms.
+
+                <br> <br>
+
+                <span class="Terms_13 "> 13. Modifications to the Terms </span> <br> 
+                We reserve the right to modify these Terms at any time. Any changes will be posted on this page, and the "Last Updated" date will be revised accordingly. Your continued use of the Site after such changes constitutes your acceptance of the modified Terms.
+
+                <br> <br>
+
+
+                <span class="Terms_14 "> 14. Governing Law </span> <br> 
+                These Terms will be governed by and construed in accordance with the laws of [Your Jurisdiction]. Any legal action or proceeding related to these Terms will be conducted in the courts located in [Your Jurisdiction].
+
+                <br> <br>
+
+                <span class="Terms_15 "> 15. Dispute Resolution </span> <br> 
+                In the event of any dispute, we encourage you to contact us directly at [Contact Information] to resolve the issue. If a resolution cannot be reached, disputes may be subject to arbitration or other legal proceedings as outlined in our Dispute Resolution policy.
+
+                <br> <br>
+
+                <span class="Terms_16 "> 16. Severability </span> <br> 
+                If any provision of these Terms is found to be unlawful, void, or unenforceable, that provision will be deemed severable from the rest of the Terms, and the remaining provisions will remain in full force and effect.
+
+                <br> <br>
+
+                <span class="Terms_17 "> 17. Contact Information </span> <br> 
+                If you have any questions about these Terms, please contact us at: <br> 
+                <b>FOODITY</b>  <br> 
+                <b>foodity2024@gmail.com </b><br> 
+                <br> <br>
+
+                <span class="disclamer ">  <b>Disclaimer:</b>  <br> These Terms and Conditions are intended to be a general guideline. You should consult with a legal professional to ensure that your Terms and Conditions are comprehensive, legally sound, and tailored to your specific business and jurisdiction.
+                    <br> 
+            </p>
+        </div>
+        <div class="agree_button">
+            <button name="agreeButton" type="Agree" onclick="close_terms()" id="agree_button_js" >I Agree</button>
+        </div>
+    </div>
+
+</body>
+</html>

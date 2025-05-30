@@ -1,0 +1,787 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+/*############## ITL = ITALIC ################*/
+@font-face {
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+
+/*###############################*/
+/*#########  B O D Y  ###########*/
+/*###############################*/
+
+body {
+    background: white;
+    color: rgb(10, 6, 6);
+    width: 100%;
+}
+
+/*##########################################*/
+/*#########  B A S E  F R A M E  ###########*/
+/*##########################################*/
+
+.base{
+    width: 100%;
+}
+
+.base_frame {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*########################################*/
+/*###########  S I D E  N A V  ###########*/
+/*########################################*/
+/* Sidebar */
+.sideNav {
+    width: 15%;
+    height: 105vh;
+    background-color: white;
+    transition: width 0.3s;
+    box-shadow: 4px 0px 12px #c4c4c4;
+}
+
+.sideNav.collapsed {
+    width: 60px;
+}
+
+.sideNav_frame {
+    padding-top: 25px;
+    text-align: left; /* Align content to the left */
+}
+
+.sideNav_frame .foodity_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.foodity_logo img {
+    margin-left: -10px;
+    left: 10px;
+    width: 180px;
+    height: auto;
+}
+
+.sideNav_frame .foodity_logo .button-img {
+    margin-left: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.sideNav.collapsed .foodity_logo img {
+    display: none;
+}
+
+.sideNav.collapsed .foodity_logo .button-img {
+    display: block;
+}
+
+/* Adjust the menu to display icons and text properly when expanded */
+.sideNav_frame .menu {
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.sideNav_frame .menu ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.sideNav_frame .menu ul li a {
+    display: flex;
+    align-items: center;
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+    width: 100%; /* Ensure full width */
+    padding: 10px 0; /* Add padding for equal height */
+    padding-left: 20px; /* Add left padding for alignment */
+}
+
+.sideNav_frame .menu ul li a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.sideNav_frame .menu ul li a:hover,
+.sideNav_frame .menu ul li a:focus {
+
+}
+
+.sideNav_frame .menu ul li a span {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Hide text when collapsed */
+.sideNav.collapsed .menu ul li a span {
+    display: none;
+}
+
+.sideNav_frame .menu ul .settings {
+}
+
+.sideNav_frame .menu ul .settings .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: none;
+    padding: 5px 0;
+    border: none;
+    width: 100%; /* Match width of parent */
+}
+
+.sideNav_frame .menu ul .settings:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 5px 20px; /* Adjusted padding to bring items closer */
+}
+
+.dropdown ul li a {
+    color: gray;
+    text-decoration: none;
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+}
+
+.dropdown ul li:not(:last-child) {
+    margin-bottom: 5px; /* Reduce space between items */
+}
+
+/* Sidebar Effects */
+.sideNav_frame .menu ul li:hover,
+.sideNav_frame .menu ul li:focus-within {
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+/*#####################################*/
+/*#########  P R O F I L E  ###########*/
+/*#####################################*/
+
+.profile{
+    position: fixed;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    bottom: 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.profile .profile_info{
+    display: flex;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.profile .profile_button{
+    border: none;
+    width: 55px;
+    height: 55px;
+    background-color: white;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+.profile_dropdown{
+    bottom: 0;
+    margin-bottom: 170px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 2px 2px 4px #c4c4c4;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}
+
+
+/*##################################################*/
+/*#########  P U R C H A S E  F R A M E  ###########*/
+/*##################################################*/
+
+.middle{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+}
+
+.checkout_frame{
+    width: 90%;
+    height: 90%;
+    margin: 50px;
+    padding: 30px 0px 30px 0px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #F9F9F9; 
+    border-radius: 8px;
+}
+
+.checkout_text{
+    font-family: "SF_BLACK";
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+
+.checkout_frame.address_frame{
+    width: 65%;
+    height: 80%;
+    margin: 50px;
+    padding: 0px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #F9F9F9; 
+    border-radius: 8px;
+}
+
+.address{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    height: 165px;
+}
+
+.address_frame{
+    width: 90%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.address h2{
+    font-family: "SF_REGULAR";
+    margin-left: 40px;
+    margin-top: 13px;
+    
+}
+
+.name h2{
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: black;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.number h2{
+    color: #6D6D6D;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    margin-top: 14px;
+}
+
+.active{
+    color: rgb(33, 201, 33);
+    font-size: 20px;
+}
+
+.inactive{
+    color: red;
+    font-size: 20px;
+}
+
+.topDetails{
+    display: flex;
+    justify-content: left;
+    height: 30px;
+}
+
+.bottomDetails h2{
+    color: #6D6D6D;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/*###############################################*/
+/*#########  S E L L E R   F R A M E  ###########*/
+/*###############################################*/
+
+.seller_frame{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 10px;
+    padding: 13px;
+    padding-left: 30px;
+    display: flex;
+}
+
+.seller_image img{
+    width: 50px;
+    height: 50px;
+    border-radius: 150px;
+    border: 3px solid #9D4EDD;
+}
+
+.seller_text{
+    font-family: sf_regular;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.seller_name p{
+    font-family: sf_bold;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom:-5px;
+}
+
+
+/*################################################*/
+/*#########  P R O D U C T  F R A M E  ###########*/
+/*################################################*/
+
+.product_mainframe{
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #FFFFFF; 
+    border-radius: 8px;
+    scrollbar-width: thin;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.product_frame{
+    width: 100%;
+    height: 360px;
+    background-color:  #FFFFFF; 
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border-top: 1px solid #c4c4c4;
+}
+
+/*#####################################*/
+/*#########  P R O D U C T  ###########*/
+/*#####################################*/
+
+.product_box{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #c4c4c4;
+    padding: 10px;
+}
+
+.product_details{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.product_image{
+    width: 20%;
+    text-align: center;
+}
+
+
+.product_image img{
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+.product_text{
+    width: 60%;
+    align-self: center;
+}
+
+.product_name{
+    font-family: sf_bold;
+    font-size: 25px;
+    width: 220px;
+}
+
+.product_name p{
+    font-family: sf_bold;
+    font-size: 25px;
+    width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product_price p{
+    font-size: 20px;
+    font-family: sf_regular;
+    vertical-align: bottom;
+}
+
+.product_count{
+    width: 50%;
+    text-align: right;
+    padding-top: 60px;
+}
+
+.product_count p{
+    font-family: sf_regular;
+    font-size: 15px;
+    color: #858585;
+}
+
+/*##########################################*/
+/*#########  T O T A L  T E X T  ###########*/
+/*##########################################*/
+
+.text_frames{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total_text{
+    padding: 15px;
+    font-family: sf_regular;
+    color: #6e6e6e;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.order_total_amount{
+    padding: 15px;
+    font-family: sf_bold;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+/*####################################################################################*/
+/*##################################  P A Y M E N T  #################################*/
+/*####################################################################################*/
+
+
+.payment_frame{
+    display: flex;
+}
+
+/*#####################################*/
+/*############  C A S H  ##############*/
+/*#####################################*/
+
+.cash{
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 80%;
+    margin: 45px;
+    margin-top: 1px;
+    margin-left: 4px;
+    padding: 20px 0px 20px 0px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #FFFFFF; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.cash:hover {
+    background-color: #9D4EDD;
+    border-color: #9D4EDD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+  }
+
+
+
+.cash input[type="radio"] {
+    transform: scale(1.5); 
+    accent-color: #9D4EDD;
+    cursor: pointer;
+  }
+
+
+
+.cash label{
+    font-size: 25px;
+    font-family: "SF_BOLD";
+}
+
+
+
+/*#####################################*/
+/*############  C A R D  ##############*/
+/*#####################################*/
+
+
+.card{
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 80%;
+    margin-top: 1px;
+    margin-left: 130px;
+    padding: 20px 0px 20px 0px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #FFFFFF; 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background-color: #9D4EDD;
+    border-color: #9D4EDD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+  }
+
+
+
+.card input[type="radio"] {
+    transform: scale(1.5); 
+    accent-color: #9D4EDD;
+    cursor: pointer;
+  }
+
+
+
+.card label{
+    font-size: 25px;
+    font-family: "SF_BOLD";
+}
+
+
+
+/*##########################################################################################*/
+/*##################################  P L A C E  O R D E R #################################*/
+/*##########################################################################################*/
+
+
+/*#####################################*/
+/*############  F R A M E  ############*/
+/*#####################################*/
+
+
+.order_summary_frame{
+    width: 35%;
+    height: 45%;
+    margin: 50px 20px 0px 0px;
+    padding: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #F9F9F9; 
+    border-radius: 8px;
+    display: block;
+}
+
+
+/*#####################################*/
+/*############  T E X T   #############*/
+/*#####################################*/
+
+.order_summary_text h2{
+    font-size: 25px;
+    font-family: "SF_BOLD";
+    margin-bottom: 20px;
+}
+
+
+.summary_product_frame{
+    width: 90%;
+    height: 65%;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #ffffff; 
+    border-radius: 8px;
+}
+
+
+.button_frame{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.place-order-btn{
+    font-size: 20px;
+    font-family: "SF_BOLD";
+    border-radius: 12px;
+    color: #FFFFFF;
+    background-color: #9D4EDD;
+    border-color: #9D4EDD;
+    width: 90%;
+    height: 70px;
+    transition: all 0.3s ease;
+}
+
+
+.place-order-btn:hover{
+    color: #FFFFFF;
+    background-color: #673292;
+    border-color: #673292;
+    transition: .5s;
+}
+
+/*##############################################################*/
+/*############  O R D E R  S U M M A R Y  T E X T  #############*/
+/*##############################################################*/
+
+.normal_text, .amount_text{
+    font-family: sf_regular;
+    font-size: 20px;
+}
+
+.ot_text, .total_amount_text{
+    font-family: sf_bold;
+    font-size: 22px;
+}
+
+.free{
+    color: rgb(4, 189, 4);
+    font-family: sf_bold;
+}
+
+.retail_price{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.gray_line{
+    width: 100%;
+    height: 2px;
+    background-color: #adadad;
+    margin-bottom: 5px;
+}
+
+.shipping_text{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.sg_text{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.discount_text{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.ot_text_frame{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}

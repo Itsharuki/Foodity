@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_sales_report.css">
+    <title>Foodity - User Sales Reportt</title>
+</head>
+<body>
+    <script src="static/Javascript/user_management.js"></script>
+
+    <!--#####################################-->
+    <!--#############  B A S E  #############-->
+    <!--#####################################-->
+
+    <div class="base">
+
+        <!--############################################-->
+        <!--#############  S I D E  N A V  #############-->
+        <!--############################################-->
+
+        <div class="sideNav">
+            <div class="sideNav_frame">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+                <div class="menuText">
+                    <p>Menu</p>
+                </div>
+                <div class="menu">  
+                    <ul>
+                        <div class="dashboard">
+                            <li>
+                            <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                            </li>
+                        </div>
+                        <div class="user_management">
+                            <li>
+                                <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                            </li>
+                        </div>
+                        <div class="user_analytics">
+                            <li>
+                                <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                            </li>
+                        </div>
+                        <div class="feedbacks">
+                            <li>
+                                <a href="/feedbacks"><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                            </li>
+                        </div>
+                        <div class="sales_report">
+                            <li>
+                                <a href="/admin_sales_report"><img src="/static/images/sideNav/sales_report_purple.png" alt="">Sales Report</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--################################################-->
+        <!--#############  B A S E  F R A M E  #############-->
+        <!--################################################-->
+
+        <div class="base_frame">
+
+            <!--##########################################-->
+            <!--#############  T O P  N A V  #############-->
+            <!--##########################################-->
+
+            <div class="topNav">
+                <div class="topNav_frame">
+                    <div class="left">
+                        
+                    </div>
+                    <div class="right">
+                        <div class="message_square">
+                            <div class="message">
+                                <img src="/static/images/admin/dashboard/messages.png" alt="">
+                            </div>
+                        </div>
+                        <div class="notif_square">
+                            <div class="notification">
+                                <img src="/static/images/admin/dashboard/notif.png" alt="">
+                            </div>
+                        </div>
+                        <div class="profile_square">
+                            <div class="profile">
+                                <div class="profile_info">
+                                    {% for user in users %}
+                                    <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                    <h1> {{ user.email }} </h1>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/admin_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <!--##########################################################-->
+            <!--###########  U S E R  S A L E S  R E P O R T  ############-->
+            <!--##########################################################-->
+
+            <div class="sales_report">
+                <div class="sales_report_frame">
+                    <div class="sales_report_background">
+                        <div class="sales_report_text">
+                            <p>Sales Report</p>
+                        </div>
+                        <!--###########################################-->
+                        <!--##############  F I L T E R  ##############-->
+                        <!--###########################################-->
+    
+                        <div class="filter_frame">
+                            <div class="filter">
+                                
+                                <div class="search_frame">
+                                    <div class="search_bar">
+                                        <input type="text" placeholder="Search">
+                                    </div>
+
+                                    <div class="date_picker_frame">
+                                        <div class="date_picker_from">
+                                            <label for="date_from">from: </label>
+                                            <div class="date_from">
+                                                <input type="date" id="date_from" name="date_from"><span></span><input type="time" name="time_from" id="time_from">
+                                            </div>
+                                        </div>
+                                        <div class="date_picker_to">
+                                            <label for="date_to">to: </label>
+                                            <div class="date_to">
+                                                <input type="date" id="date_to" name="date_to"><span></span><input type="time" name="time_to" id="time_to">
+                                            </div>
+                                        </div>
+                                        <div class="filter_submit">
+                                            <input type="submit" name="filter" id="filter">
+                                            <input type="submit" name="filter" id="filter" value='Print'>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                          <!--#########################################-->
+                            <!--##############  T A B L E  ##############-->
+                            <!--#########################################-->
+                            
+                            <div class="sales_report_table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="text">Serial</th>
+                                            <th class="text">Order ID</th>
+                                            <th class="text">Customers</th>
+                                            <th class="text">Location</th>
+                                            <th class="text">Order Date</th>
+                                            <th class="text">Payment</th>
+                                            <th class="text">Quantity</th>
+                                            <th class="text">Price</th>
+                                            <th class="text">Total Amount</th>
+                                            <th class="text">Commission</th>
+        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in report %}
+                                <tr>
+                                    <td> {{ data.order_id }} </td>
+                                    <td> {{ data.product }} </td>
+                                    <td> {{ data.buyer_name }} </td>
+                                    <td> {{ data.buyer_location }} </td>
+                                    <td> {{ data.order_date }} </td>
+                                    <td> {{ data.payment_method }} </td>
+                                    <td> {{ data.order_quantity }} </td>
+                                    <td> ₱{{ data.order_price }} </td>
+                                    <td> ₱{{ data.order_total }} </td>
+                                    <td> ₱{{ data.admin_com }} </td>
+                                </tr>
+                                {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,1014 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+/*############## ITL = ITALIC ################*/
+@font-face {
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+
+/*###############################*/
+/*#########  B O D Y  ###########*/
+/*###############################*/
+
+body {
+    background: white;
+    color: rgb(10, 6, 6);
+    width: 100%;
+}
+
+/*##########################################*/
+/*#########  B A S E  F R A M E  ###########*/
+/*##########################################*/
+
+.base{
+    width: 100%;
+}
+
+.base_frame {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*########################################*/
+/*###########  S I D E  N A V  ###########*/
+/*########################################*/
+
+/* Sidebar */
+.sideNav {
+    height: 100vh;
+    width: 15%;
+    background-color: white;
+    transition: width 0.3s;
+    box-shadow: 4px 0px 12px #c4c4c4;
+}
+
+.sideNav.collapsed {
+    width: 60px;
+}
+
+.sideNav_frame {
+    padding-top: 25px;
+    text-align: left; /* Align content to the left */
+}
+
+.sideNav_frame .foodity_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.foodity_logo img {
+    margin-left: -10px;
+    left: 10px;
+    width: 180px;
+    height: auto;
+}
+
+.sideNav_frame .foodity_logo .button-img {
+    margin-left: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.sideNav.collapsed .foodity_logo img {
+    display: none;
+}
+
+.sideNav.collapsed .foodity_logo .button-img {
+    display: block;
+}
+
+/* Adjust the menu to display icons and text properly when expanded */
+.sideNav_frame .menu {
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.sideNav_frame .menu ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.sideNav_frame .menu ul li a {
+    display: flex;
+    align-items: center;
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+    width: 100%; /* Ensure full width */
+    padding: 10px 0; /* Add padding for equal height */
+    padding-left: 20px; /* Add left padding for alignment */
+}
+
+.sideNav_frame .menu ul li a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.sideNav_frame .menu ul li a:hover,
+.sideNav_frame .menu ul li a:focus {
+
+}
+
+.sideNav_frame .menu ul li a span {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Hide text when collapsed */
+.sideNav.collapsed .menu ul li a span {
+    display: none;
+}
+
+.sideNav_frame .menu ul .settings {
+}
+
+.sideNav_frame .menu ul .settings .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: none;
+    padding: 5px 0;
+    border: none;
+    width: 100%; /* Match width of parent */
+}
+
+.sideNav_frame .menu ul .settings:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 5px 20px; /* Adjusted padding to bring items closer */
+}
+
+.dropdown ul li a {
+    color: gray;
+    text-decoration: none;
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+}
+
+.dropdown ul li:not(:last-child) {
+    margin-bottom: 5px; /* Reduce space between items */
+}
+
+/* Sidebar Effects */
+.sideNav_frame .menu ul li:hover,
+.sideNav_frame .menu ul li:focus-within {
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+/*#####################################*/
+/*#########  P R O F I L E  ###########*/
+/*#####################################*/
+
+.profile{
+    width: 200px;
+    position: fixed;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    bottom: 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.profile .profile_info{
+    display: flex;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.profile .profile_button{
+    border: none;
+    width: 55px;
+    height: 55px;
+    background-color: white;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+.profile_dropdown{
+    bottom: 0;
+    margin-bottom: 170px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 2px 2px 4px #c4c4c4;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}
+
+
+
+/*####################################################*/
+/*#########  D A S H B O A R D  F R A M E  ###########*/
+/*####################################################*/
+
+.middle{
+    width: 60%;
+}
+
+.buyer{
+    width: 100%;
+    height: 100% auto;
+}
+
+.buyer_frame{
+    margin-top: 50px;
+}
+
+
+/*#################################################################*/
+/*#########  S E A R C H  C O N T A I N E R  F R A M E  ###########*/
+/*#################################################################*/
+
+
+.buyer_frame .search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buyer_frame .search-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "SF_MEDIUM";
+    padding: 8px 8px 8px 32px; /* Padding to make space for the search icon */
+    background-image: url(/static/images/buyer/home/search.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 25px;
+}
+
+.buyer_frame .dropdown-content {
+    width: 200px;
+    height: 450px;
+    display: none;
+    position: absolute;
+    left: 620px;
+    background-color: #D9D9D9;
+    min-width: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    z-index: 1;
+
+}
+
+.buyer_frame .dropdown-content a {
+    font-family: "SF_MEDIUM";
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 7px ;
+    font-size: 15px;
+}
+
+.buyer_frame .dropdown-content a:hover {
+    background-color: #9D4EDD;
+    color: #EEEEEE;
+}
+
+/*##################################################*/
+/*#########  F I L T E R  B U T T O N S  ###########*/
+/*##################################################*/
+
+.buyer .filter-buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px; /* Add space for the bottom line */
+    width: 90%;
+    margin-left: 15px;
+}
+
+
+.buyer .filter-buttons button {
+    font-family: "SF_BOLD";
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative; /* Make sure we can position the underline correctly */
+}
+
+.buyer .filter-buttons button img {
+    margin-right: 10px;
+}
+
+/* Default state for the line */
+.buyer .filter-buttons button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position it right under the button */
+    width: 100%;
+    height: 4px; /* Thickness of the line */
+    background: transparent; /* No line by default */
+    transition: background 0.3s;
+}
+
+/* Active state when a button is clicked or selected */
+.buyer .filter-buttons button.active::after {
+    background: #9D4EDD; /* Violet color for active button */
+}
+
+/* Hover state, underline appears when hovering */
+.buyer .filter-buttons button:hover::after {
+    background: #9D4EDD; /* Violet color for hover */
+}
+
+.filter_buttons_set{
+    text-align: center;
+    width: 100%;
+}
+
+.buyer .bottom-line {
+    margin-top: -19px;
+    width:  90%;
+    height: 3px;
+    background: #EEEEEE;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*##############################################*/
+/*#########  P R O D U C T  C A R D  ###########*/
+/*##############################################*/
+
+/* .product-box {
+margin-top: 10px;
+background-color: white;
+border: 1px solid #ddd;
+border-radius: 10px;
+padding: 20px;
+width: 200px;
+position: relative;
+border: none;
+
+}
+
+.product-image {
+width: 100%;
+border-radius: 15px;
+}
+
+.heart-icon {
+position: absolute;
+top: 25px;
+right: 28px;
+font-size: 15px;
+color: red;
+background-color: white;
+border-radius: 15px;
+
+
+}
+
+.product-details {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 10px;
+}
+
+.product-title {
+font-size: 18px;
+color: #333;
+}
+
+.product-price {
+font-size: 16px;
+color: #333;
+}
+
+.brand-name {
+font-size: 14px;
+color: #888;
+margin-top: 10px;
+}
+*/
+
+.product_frame {
+    left: 45px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-y: auto;
+    padding: 20px;
+    height: 720px;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+/* .dashboard  .scroll-container::-webkit-scrollbar{
+    display: none;  
+} */
+
+.product_frame a{
+    text-decoration: none;
+}
+
+/*###############################################################*/
+/*##########  F R U I T S  A N D  V E G E T A B L E S  ##########*/
+/*###############################################################*/
+
+.buyer .fnv_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
+.buyer .fnv_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*#################################################*/
+/*##########  C O N F E C T I O N E R Y  ##########*/
+/*#################################################*/
+
+.buyer .confectionery_box {
+    margin-top: 0px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .confectionery_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*#####################################*/
+/*##########  C E R E A L S  ##########*/
+/*#####################################*/
+
+.buyer .cereals_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .cereals_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*############################################*/
+/*##########  E D I B L E  I C E S  ##########*/
+/*############################################*/
+
+.buyer .edible_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .edible_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*#################################*/
+/*##########  D A I R Y  ##########*/
+/*#################################*/
+
+.buyer .dairy_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .dairy_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*###################################*/
+/*##########  B A K E R Y  ##########*/
+/*###################################*/
+
+.buyer .bakery_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .bakery_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*#################################################*/
+/*##########  N O N P E R I S H A B L E  ##########*/
+/*#################################################*/
+
+.buyer .np_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .np_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+/*####################################################*/
+/*##########  S W E E T  B E V E R A G E S  ##########*/
+/*####################################################*/
+
+.buyer .sweet_box {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+}
+
+.buyer .sweet_box:hover {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0; 
+    transform: scale(1.1);
+    transition: .5s linear;
+}
+
+
+/*#####################################*/
+/*##########  P R O D U C T  ##########*/
+/*#####################################*/
+
+.buyer  .product-image {
+    height: 160px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+.scroll-container .heart-icon {
+    font-size: 15px;
+    color: red;
+    background-color: white;
+    background-size: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.buyer .product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.buyer   .product-title {
+    font-family: "SF_MEDIUM";
+    font-size: 18px;
+    color: #333;
+    word-wrap: break-word;
+    overflow-y: auto;
+}
+
+.product-price {
+    font-family: "SF_BOLD";
+    font-size: 16px;
+    color: #333;
+    text-align: right;
+}
+
+.buyer .brand-name {
+    font-family: "SF_MEDIUM";
+    font-size: 12px;
+    color: #888;
+    margin-top: -1px;
+}
+
+/*############################################*/
+/*#########  R I G H T  F R A M E  ###########*/
+/*############################################*/
+
+.right_frame {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: -4px 0px 12px #c4c4c4;
+}
+
+.right-container {
+    margin-top: 40px;
+}
+
+.right-container h1 {
+    font-family: "SF_BOLD";
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+
+/*##############################################*/
+/*#######  D E L I V E R Y  F R A M E  #########*/
+/*##############################################*/
+
+.delivery-address {
+    margin-bottom: 30px;
+}
+
+.delivery-address p {
+    top: 30px;
+    font-family: "SF_MEDIUM";
+    font-size: 14px;
+    color: #000000;
+}
+
+.address-info {
+    top: 40px;
+    font-family: "SF_BOLD";
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+/*##############################################*/
+/*###############  O R D E R S  ################*/
+/*##############################################*/
+
+.order_items{
+    width: 100%;
+    height: 430px;
+    overflow-y: auto;
+    display: block;
+    justify-content: center;
+    scrollbar-width: thin;
+}
+
+.order_items .item {
+    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px #c4c4c4;
+    width: 90%;
+}
+
+.item-image {
+    top: 40px;
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item-details p {
+    font-family: "SF_BOLD";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-price {
+    font-family: "SF_MEDIUM";
+    top: 50px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.item_piece{
+    font-family: sf_regular;
+    margin-top: 5px;
+}
+
+.remove_order a{
+    text-decoration: none;
+    color: #c4c4c4;
+    font-family: sf_regular;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.remove_order a:hover{
+    transition: .5s;
+    color: #999999;
+}
+
+/*##############################################*/
+/*##########  O R D E R S S A M A R Y ##########*/
+/*##############################################*/
+
+
+.order-summary {
+    border-top: 1px solid rgb(255, 255, 255);
+    margin-top: 80px;
+}
+
+.summary-row {
+    font-family: "SF_MEDIUM";
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.summary-total {
+    display: flex;
+    font-family: "SF_MEDIUM";
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 1px solid #ffffff;
+    padding-top: 10px;
+}
+/*##############################################*/
+/*###############  B U T T O N S ###############*/
+/*##############################################*/
+
+.checkout-button {
+    top: 360px;
+    margin-top: 20px;
+}
+
+.checkout-button button {
+    width: 100%;
+    padding: 20px;
+    background-color: #9D4EDD;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-button button:hover {
+    background-color: #7B2CBF;
+}
+
+
+
+
+
+

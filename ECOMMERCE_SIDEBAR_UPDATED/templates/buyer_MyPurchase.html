@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/foodity icon.png">
+    <link rel="stylesheet" href="static/buyer_MyPurchase.css">
+    <title>Foodity - My Purchase</title>
+</head>
+<body>
+    <script src="../static/Javascript/buyer_my_purchase.js"></script>
+
+    <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="Messages"><a href="/buyer_messages"><img src="../static/images/buyer/sideNav/message.png" alt="Messages Icon"> </span> <span>Messages</span></a></li>
+                            <li class="Notif"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/notification.png" alt="Notif Icon"> </span> <span>Notification</span></a></li>
+                            <li class="My Purchase"><a href="/buyer_MyPurchase"><img src="../static/images/buyer/sideNav/mypurchase.png" alt="My Purchase Icon"> <span>My Purchase</span></a></li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="my_purchase_frame">
+                    <div class="purchase_text">
+                        <h1>My Purchase</h1>
+                    </div>
+                    <div class='purchase_category_frame'>
+                        <div class="purchase_container">
+                            <input type="text" class="purchase_input" placeholder="Search">
+                        </div>
+    
+    
+                        <div class="category_container">
+                            <div class="dropdown">
+                                <img src="../static/images/buyer/mypurchase/dropdown.png" alt="Category Icon" class="dropdown-icon">
+                                <span>Category Filter</span>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown_All">All</li>
+                                    <li class="dropdown_Ship">To Ship</li>
+                                    <li class="dropdown_Receive">To Receive</li>
+                                    <li class="dropdown_Completed">Completed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my_purchase_table">
+                        <div class='table_frame'>
+                            <table id="table">
+                                <thead>
+                                    <tr>
+                                        <th class="th_cell1">Order ID</th>
+                                        <th class="th_cell2">Product</th>
+                                        <th class="th_cell3">Order Date</th>
+                                        <th class="th_cell4">Payment Method</th>
+                                        <th class="th_cell5">Quantity</th>
+                                        <th class="th_cell6">Price</th>
+                                        <th class="th_cell7">Total Amount</th>
+                                        <th class="th_cell8">Order Status</th>
+                                        <th class="th_cell9">Payment Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td><div class='cell1'>{{ order.order_id }}</div></td>
+                                        <td><div class='cell2'>{{ order.product }}</div></td>
+                                        <td><div class='cell3'>{{ order.order_date }}</div></td>
+                                        <td><div class='cell4'>{{ order.payment_method }}</div></td>
+                                        <td><div class='cell5'>{{ order.order_quantity }}</div></td>
+                                        <td><div class='cell6'>₱{{ order.order_price }}</div></td>
+                                        <td><div class='cell7'>₱{{ order.order_total }}</div></td>
+                                        <td><div class='cell8'>
+                                            {% if order.order_status == 0 %}
+                                            <span class='placed'>Order Placed</span>
+                                            {% elif order.order_status == 1 %}
+                                            <span class='to_ship'>To ship</span>
+                                            {% elif order.order_status == 2 %}
+                                            <span class='delivered'>Delivered</span>
+                                            {% endif %}
+                                        </div></td>
+                                        <td><div class='cell9'>
+                                            {% if order.payment_status == 0 and order.order_status == 2 %}
+                                            <span class='unpaid'> Unpaid</span>
+                                            <a href="/buyer_MyPurchase/pay/{{ order.order_id }}" class="pay_button"> pay </a>
+                                            {% elif order.payment_status == 0 %}
+                                            <span class='unpaid'> Unpaid</span>
+                                            {% elif order.payment_status == 1 %}
+                                            <span class='paid'> Paid</span>
+                                            {% endif %}
+                                        </div></td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/foodity icon.png">
+    <link rel="stylesheet" href="static/buyer_home.css">
+    <title>Foodity - Home</title>
+</head>
+<body>
+    <script src="../static/Javascript/buyer_home.js"></script>
+
+    <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="Messages"><a href="/buyer_messages"><img src="../static/images/buyer/sideNav/message.png" alt="Messages Icon"> </span> <span>Messages</span></a></li>
+                            <li class="Notif"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/notification.png" alt="Notif Icon"> </span> <span>Notification</span></a></li>
+                            <li class="My Purchase"><a href="/buyer_MyPurchase"><img src="../static/images/buyer/sideNav/mypurchase.png" alt="My Purchase Icon"> <span>My Purchase</span></a></li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle">
+                <div class="buyer">
+                    <div class="buyer_frame">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="What would you like to eat?">
+                        </div>
+                        
+                        <div class="filter-buttons">
+                            <button data-category="fnv"  class="active"><img src="../static/images/buyer/home/Pin.png" >Fruits and Vegetables</button>
+                            <button data-category="confectionery"><img src="../static/images/buyer/home/promotion.png" >Confectionery</button>
+                            <button data-category="cereals"><img src="../static/images/buyer/home/best-seller.png" alt='cereals'>Cereals</button>
+                            <button data-category="edible_ices"><img src="../static/images/buyer/home/top-rated.png" alt='edible_ices'>Edible Ices</button>
+                            <button data-category="dairy"><img src="../static/images/buyer/home/grid.png" alt='dairy'>Dairy</button>
+                            <button data-category="bakery"><img src="../static/images/buyer/home/grid.png" alt='bakery'>Bakery</button>
+                            <button data-category="nonperishable"><img src="../static/images/buyer/home/grid.png" alt='nonperishable'>Nonperishable Items</button>
+                            <button data-category="sweet_beverages"><img src="../static/images/buyer/home/grid.png" alt='sweet_beverages'>Sweet Beverages</button>
+                            <button data-category="all"><img src="../static/images/buyer/home/grid.png">All</button>
+                        </div>
+                        <div class="bottom-line"></div>
+
+                        <!--############################################################-->
+                        <!--#######  F R U I T S  A N D  V E G E T A B L E S  ##########-->
+                        <!--############################################################-->
+                        
+                        <div class="product_frame">
+                            {% for product in fnv %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="fnv_box" data-category="fnv" data-type="fruits" id='fnv'>
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--##############################################-->
+                            <!--#######  C O N F E C T I O N E R Y  ##########-->
+                            <!--##############################################-->
+
+                            {% for product in confectionery %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="confectionery_box" data-category="confectionery" data-type="confectionery">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--##################################-->
+                            <!--#######  C E R E A L S  ##########-->
+                            <!--##################################-->
+
+                            {% for product in cereals %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="cereals_box" data-category="cereals" data-type="cereals">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--#########################################-->
+                            <!--#######  E D I B L E  I C E S  ##########-->
+                            <!--#########################################-->
+
+                            {% for product in edible_ices %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="edible_box" data-category="edible_ices" data-type="edible_ices">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--##############################-->
+                            <!--#######  D A I R Y  ##########-->
+                            <!--##############################-->
+
+                            {% for product in dairy %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="dairy_box" data-category="dairy" data-type="dairy">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--################################-->
+                            <!--#######  B A K E R Y  ##########-->
+                            <!--################################-->
+
+                            {% for product in bakery %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="bakery_box" data-category="bakery" data-type="bakery">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--##############################################-->
+                            <!--#######  N O N P E R I S H A B L E  ##########-->
+                            <!--##############################################-->
+
+                            {% for product in nonperishable %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="np_box" data-category="nonperishable" data-type="nonperishable">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+
+                            <!--#################################################-->
+                            <!--#######  S W E E T  B E V E R A G E S  ##########-->
+                            <!--#################################################-->
+
+                            {% for product in sweet_beverages %}
+                            <a href="/buyer_order_details/{{product.product_id}}">
+                                <div class="sweet_box" data-category="sweet_beverages" data-type="sweet_beverages">
+                                    <span class="heart-icon"></span>
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Product Image" class="product-image">
+                                    <div class="product-details">
+                                        <div class="product-title">{{ product.product_name }}</div>
+                                    </div>
+                                    <div class="product-price">₱ {{ product.product_price }}</div>
+                                    <div class="brand-name">Foodity</div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right_frame">
+            <!--################################################-->
+            <!--##############  M Y  O R D E R S  ##############-->
+            <!--################################################-->
+            <div class="right-container">
+                <h1>My Orders</h1>
+            </div>
+            <div class="delivery-address">
+                {% for user in users %}
+                <p>Delivery address</p>
+                <div class="address-info">
+                    <span class="address-text">Brgy. {{ user.barangay }}, {{ user.city }}, {{ user.province }} - {{ user.zip_code }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="order_items">
+                {% for order in my_order %}
+                <div class="item">
+                    <img src="data:image/jpeg;base64, {{ order.product_photo1 }}" class="item-image">
+                    <div class="item-details">
+                        <p>{{ order.product_name }}</p>
+                        <span class="item-price">₱ {{ order.order_price }}</span>
+                        <span class="item_piece"><b>{{ order.order_quantity }}</b> pc(s)</span>
+                    </div>
+                    <div class='remove_order'>
+                        <a href="/buyer_home/remove_orders/ {{ order.product_id }}">&times;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            
+            <div class="order-summary">
+                {% for order in order_total_value %}
+                <div class="summary-row">
+                    <span>Sub Total</span>
+                    <span>₱ {{ order.subTotal }}</span>
+                </div>
+                {% endfor %}
+                {% for df in order_total_value %}
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>₱ {{ df.delivery_fee }}</span>
+                </div>
+                {% endfor %}
+                {% for total in order_total_value %}
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span>₱ {{ total.total }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="checkout-button">
+                <a href="/condition"><button>Checkout</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

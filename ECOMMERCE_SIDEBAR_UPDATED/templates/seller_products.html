@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/seller_products.css">
+    <title>Foodity - Products</title>
+</head>
+<body class="background" id="blur">
+    
+    <!--############################################-->
+    <!--##############  N A V  B A R  ##############-->
+    <!--############################################-->
+
+    <script src="static/Javascript/seller_products.js"></script>
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <a href="/seller_message"><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <div class="profile_info">
+                        {% for user in users %}
+                        <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                        <h1> {{ user.email }} </h1>
+                        {% endfor %}
+                    </div>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="/seller_edit_profile">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+    <div class="base">
+        <div class="base_frame">
+
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/seller_dashboard"><img src="/static/images/seller/dashboard-icon@1x.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="orders">
+                                <li>
+                                    <a href="/seller_orders"><img src="/static/images/seller/orders-icon.png" alt=""> Orders</a>
+                                </li>
+                            </div>
+                            <div class="delivery">
+                                <li>
+                                    <a href="/seller_delivery"><img src="/static/images/seller/delivery-icon.png" alt=""> Delivery</a>
+                                </li>
+                            </div>
+                            <div class="products">
+                                <li>
+                                    <a href="/seller_products"><img src="/static/images/seller/products-icon.png" alt=""> Products</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/seller_sales"><img src="/static/images/seller/file-icon@1x.png" alt=""> Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        <!--###############################################-->
+        <!--##############  P R O D U C T S  ##############-->
+        <!--###############################################-->
+        
+            <div class="seller_products">
+                <div class="products_frame">
+                    <div class="products_frame_top">
+                        <div class="search_bar_frame">
+                            <input type="text" placeholder="Search..." class="search-input">
+                        </div>
+                        <div class="msg">{{ message }}</div>
+                        <div class="add_button_frame">
+                            <button onclick="Add_New_Product()" class="add_button" id="open_add_form">Add Products</button>
+                        </div>
+                    </div>
+                    <div class="product_header_container">
+                        <div class="product_header">
+                            <div class="ProductImage">
+                                <p>Image</p>
+                            </div>
+                            <div class="ProductName">
+                                <p>Name</p>
+                            </div>
+                            <div class="set_titles">
+                                <div class="ProductCategory">
+                                    <p>Category</p>
+                                </div>
+                                <div class="ProductVariant">
+                                    <p>Variants</p>
+                                </div>
+                                <div class="ProductPrice">
+                                    <p>Price</p>
+                                </div>
+                            </div>
+                            <div class="ProductDescription">
+                                <p>Description</p>
+                            </div>
+                            <div class="ProductActions">
+                                <p>Actions</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for products -->
+                    <div class="products_container">
+                        <div class="product_list" id="product_list">
+                            {% for product in products %}
+                                <div class="product_box">
+                                    <div class=product_box_items>
+                                        <div class="product_image_holder">
+                                            <img src="data:image/jpeg;base64, {{ product.product_photo1 }}" class="photo_image">
+                                        </div>
+                                        <div class="product_name_and_price_frame">
+                                            <div class="product_name_box">
+                                                <p class="name_of_product"> {{ product.product_name }} </p>
+                                            </div>
+                                            <div class="product_category">
+                                                {% if product.product_categories == 1 %}
+                                                <span class='fnv'>Fruits and Vegetables</span>
+                                                {% elif product.product_categories == 2 %}
+                                                <span class='confectionery'>Confectionery</span>
+                                                {% elif product.product_categories == 3 %}
+                                                <span class='cereals'>Cereals</span>
+                                                {% elif product.product_categories == 4 %}
+                                                <span class='edible_ices'>Edible Ices</span>
+                                                {% elif product.product_categories == 5 %}
+                                                <span class='dairy'>Dairy</span>
+                                                {% elif product.product_categories == 6 %}
+                                                <span class='bakery'>Bakery</span>
+                                                {% elif product.product_categories == 7 %}
+                                                <span class='non_perishable_items'>Non Perishable Items</span>
+                                                {% elif product.product_categories == 8 %}
+                                                <span class='sweet_beverages'>Sweet Beverages</span>
+                                                {% else %}
+                                                {% endif %}
+                                            </div>
+                                            <div class="product_variant">
+                                                <span class=variant>{{ product.product_variants }}</span>
+                                            </div>
+                                            <div class="product_price_box">
+                                                <p class=price_of_product>₱ {{ product.product_price}} </p>
+                                            </div>  
+                                        </div>
+                                        <div class="product_description_box">
+                                            <p class="description_of_product"> {{ product.product_description }} </p>
+                                        </div>
+                                        <div class="button_product">
+                                            <a href="/seller_products/edit_product/{{product.product_id}}"><button class="product_edit">Edit</button></a>
+                                            <a href="/seller_products/archive_product/{{product.product_id}}"><button class="product_delete">Archive</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    <!--####################################################-->
+                    <!--##############  A D D  P R O D U C T  ##############-->
+                    <!--####################################################-->
+                    <form action='/seller_products/add_product' method='POST' enctype="multipart/form-data" charset="utf-8">
+                        <div id="add_form" class="add_form_frame">
+                            <div class="form_content">
+                                <span class="close_button" id="close_button" onclick="Close_AddProduct()">&times;</span>
+                                <h2>Add New Product</h2>
+                                <div id="add_product_form">
+                                    <label for="productName">Product Name:</label>
+                                    <input type="text" id="productName" name="productName" placeholder="Add your product name" required>
+                
+                                    <label for="productPrice">Product Price (₱):</label>
+                                    <input type="number" id="productPrice" name="productPrice" placeholder="Add your price" required>
+                                    <label for="productStocks">Product Stocks:</label>
+                                    <input type="number" id="productStocks" name="productStocks" placeholder="Add your stocks" required>
+                                    <label for="variant">Variants:</label>
+                                    <div class="add_variants">
+                                        <input type="text" id="variant" name="variant" placeholder="Add your variants" required>
+                                    </div>
+                                    <div class="product_description">
+                                        <label for="product_description">Product Description:</label>
+                                        <textarea id="product_description" name="product_description" required rows="4" cols="50" placeholder="Description..."></textarea>
+                                    </div>
+                                    
+                                    <div class="product_categories">
+                                        <select name="product_categories_dropdown" id="product_categories_dropdown" required>
+                                            <option selected disabled>Choose a Category</option>
+                                            <option value="1">Fruit and Vegetables</option>
+                                            <option value="2">Confectionery</option>
+                                            <option value="3">Cereals</option>
+                                            <option value="4">Edible Ices</option>
+                                            <option value="5">Dairy</option>
+                                            <option value="6">Bakery</option>
+                                            <option value="7">Nonperishable Items</option>
+                                            <option value="8">Sweet Beverages</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="product_image_view">
+                                        <img src="/static/images/seller/products/image_placeholder.svg" id="image_view1">
+                                        <img src="/static/images/seller/products/image_placeholder.svg" id="image_view2">
+                                        <img src="/static/images/seller/products/image_placeholder.svg" id="image_view3">
+                                        <img src="/static/images/seller/products/image_placeholder.svg" id="image_view4">
+                                    </div>
+
+                                    <div class="product_image">
+                                        <label for="productImage1">Upload</label>
+                                        <input type="file" id="productImage1" name="productImage1" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic1()">
+                                        <label for="productImage2">Upload</label>
+                                        <input type="file" id="productImage2" name="productImage2" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic2()">
+                                        <label for="productImage3">Upload</label>
+                                        <input type="file" id="productImage3" name="productImage3" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic3()">
+                                        <label for="productImage4">Upload</label>
+                                        <input type="file" id="productImage4" name="productImage4" accept="image/jpeg,image/gif,image/png,image/x-eps*" required onchange="change_pic4()">
+                                    </div>
+
+                                    
+                
+                                    <button type="submit" class="action-btn add-btn">Add Product</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form> 
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>

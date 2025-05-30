@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/foodity icon.png">
+    <link rel="stylesheet" href="../static/buyer_add_to_cart.css">
+    <title>Foodity - Add to Cart</title>
+</head>
+<script src="../static/Javascript/buyer_add_to_cart.js"></script>   
+    <body>
+        <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="Messages"><a href="/buyer_messages"><img src="../static/images/buyer/sideNav/message.png" alt="Messages Icon"> </span> <span>Messages</span></a></li>
+                            <li class="Notif"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/notification.png" alt="Notif Icon"> </span> <span>Notification</span></a></li>
+                            <li class="My Purchase"><a href="/buyer_MyPurchase"><img src="../static/images/buyer/sideNav/mypurchase.png" alt="My Purchase Icon"> <span>My Purchase</span></a></li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+
+                <!--###############################################-->
+                <!--#######  A D D T O C A R T I T E M S ##########-->
+                <!--###############################################-->
+                <div class="cart-container">
+                    <h2>Cart</h2>
+                    <div class="cart-text-container">
+                        <div class="Product-text">
+                            <h2>Product</h2>
+                        </div>
+
+                        <div class="Price-text">
+                            <h2>Price</h2>
+                        </div>
+
+                        <div class="Quantity-text">
+                            <h2>Quantity</h2>
+                        </div>
+
+                        <div class="SubTotal-text">
+                            <h2>Total</h2>
+                        </div>
+                    </div>
+                    <form action='/buyer_add_to_cart/checkout/' method='POST'>
+                        <div class="Product-frame">
+                            {% for cart in order_display %}
+                                <div class='product_box'>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="selected" name="selected" value='{{ cart.product_id }}'>
+                                    </div>
+                                    <div class='product_image'>
+                                        <img src="data:image/jpeg;base64,{{ cart.product_photo1 }}">
+                                    </div>
+                                    <div class='product_name'>
+                                        <p> {{cart.product_name}} </p>
+                                    </div>
+                                    <div class='product_price'>
+                                        <p>₱ {{cart.order_price}} </p>
+                                    </div>
+                                    <div class='product_qty'>
+                                        <p>{{cart.order_quantity}}pc(s) </p>
+                                    </div>
+                                    <div class='product_total'>
+                                        <p>₱ {{cart.total_price_item}}</p>
+                                    </div>
+                                    <div class='product_remove'>
+                                        <a href='/buyer_add_to_cart/remove_orders/{{ cart.product_id }}'>&times;</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% for cart in order_total_value %}
+                        <div class="Cart-total-text">
+                            <h2>Cart Total: ₱ {{ cart.subTotal }}</h2>
+                        </div>
+                        {% endfor %}
+                        <div class="checkout_button">
+                            <button name="checkoutButton" type="submit">Checkout</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+    

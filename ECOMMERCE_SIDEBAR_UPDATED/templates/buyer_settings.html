@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./static/Icon/foodity_icon.png"> 
+    <link rel="stylesheet" href="/static/buyer_home.css">
+    <title>Foodity - Home</title>
+</head>
+<body>
+    <!--##########################################-->
+    <!--#############  N A V  B A R  #############-->
+    <!--##########################################-->
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <a href="Home.html"><img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">🔍</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <img src="./static/Icon/envelope.png" alt="">
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <button  class="profile_button"></button>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="">Edit Profile</a>
+                            <a href ="">My Purchase</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- ############################################################
+     ########################## BASE FRAME ##########################
+     ################################################################# -->
+    <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="home">
+                                <li>
+                                <a href="/buyer_home"><img src="/static/images/buyer/sideNav/home.png" alt=""> Home</a>
+                                </li>
+                            </div>
+                            <div class="explore">
+                                <li>
+                                    <a href="/buyer_explore"><img src="/static/images/buyer/sideNav/explore.png" alt=""> Explore</a>
+                                </li>
+                            </div>
+                            <div class="saved">
+                                <li>
+                                    <a href="/buyer_saved"> <img src="/static/images/buyer/sideNav/saved.png" alt=""> Saved</a>
+                                </li>
+                            </div>
+                            <div class="cart">
+                                <li>
+                                    <a href="/buyer_add_to_cart"> <img src="/static/images/buyer/sideNav/cart.png" alt=""> Cart</a>
+                                </li>
+                            </div>
+                            <div class="Purchase_History">
+                                <li>
+                                    <a href="/buyer_purchase_history"><img src="/static/images/buyer/sideNav/purchase_history.png" alt=""> Purchase History</a>
+                                </li>
+                            </div>
+                            <div class="Contact_us">
+                                <li>
+                                    <a href="/buyer_contact_us"><img src="/static/images/buyer/sideNav/contact_us.png" alt="">Contact us</a>
+                                </li>
+                                <div class="settings">
+                                    <li>
+                                        <a href="/buyer_settings"><img src="/static/images/buyer/sideNav/settings.png" alt="">Settings</a>
+                                    </li>
+                            </div>
+                        </ul>
+                        <button class = "help_button">Need Help<br/>Customer Service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

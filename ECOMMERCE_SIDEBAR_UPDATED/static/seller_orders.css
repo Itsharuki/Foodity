@@ -1,0 +1,640 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+
+/*############################################*/
+/*############## ITL = ITALIC ################*/
+/*############################################*/
+
+@font-face { 
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+/*######################################################################################################*/
+/*#######################################  D E S I G N  C O D E  #######################################*/
+/*######################################################################################################*/
+
+/*#########################################################################################*/
+/*#######################################  B O D Y  #######################################*/
+/*#########################################################################################*/
+
+body{
+    background: white;
+    color: rgb(10, 6, 6);
+}
+
+/*#############################################################################################*/
+/*#######################################  T O P N A V  #######################################*/
+/*#############################################################################################*/
+
+.topNav{
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.topNav_frame{
+    display: flex;
+    justify-content: space-between;
+}
+
+.topNav_frame .left .foodity_logo img{
+    width: 250px;
+    height: auto;
+    margin-top: -10px;
+}
+
+.topNav_frame .right{
+    display: flex;
+}
+
+
+.message{
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 15px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.notification{
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    padding-top: 15px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+
+/*##############################################*/
+/*#########  P R O F I L E  I N F O  ###########*/
+/*##############################################*/
+.profile{
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+
+.profile_info{
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.topNav_frame .right .profile .profile_button{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border: none;
+    width: 55px;
+    height: 55px;
+    margin-top: -1px;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.topNav_frame .right .profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*#########################################################################################*/
+/*#######################################  B A S E  #######################################*/
+/*#########################################################################################*/
+
+.base_frame{
+    display: flex;
+}
+
+
+/*################################################################################################*/
+/*#######################################  S I D E  N A V  #######################################*/
+/*################################################################################################*/
+
+.sideNav{
+    width: 20%;
+}
+
+.sideNav_frame{
+    margin-top: 50px;
+    margin-left: 40px;
+    z-index: -2;
+}
+
+.sideNav_frame .menuText{
+    font-family: SF_MEDIUM;
+}
+
+.sideNav_frame .menu{
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul li{
+    margin-left: 10px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .dashboard{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .orders{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .delivery{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .products{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .sales_report{
+    margin-left: -0px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sideNav_frame .menu ul .orders li a{
+    font-size: 20px;
+    font-family: SF_MEDIUM;
+    text-decoration: none;
+    color: #9D4EDD;
+    pointer-events: none;
+}
+
+.sideNav_frame .menu ul li a{
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+}
+
+.sideNav_frame .toolsText{
+    font-family: SF_MEDIUM;
+}
+
+.sideNav_frame .tools{
+    margin-top: 20px;
+}
+
+.sideNav_frame ul li{
+    list-style: none;
+}
+
+.sideNav_frame ul li a{
+    text-decoration: none;
+    font-family: SF_MEDIUM;
+    font-size: 20px;
+    color: gray;
+}
+
+/*#############################################*/
+/*#########  S I D E  N A V  I M G  ###########*/
+/*#############################################*/
+
+
+.sideNav_frame img{
+    vertical-align: bottom;
+    width: 30px;
+    height: auto;
+}
+
+/*###################################################*/
+/*#########  S I D E  N A V  E F F E C T S  #########*/
+/*###################################################*/
+
+.sideNav_frame .menu ul .dashboard li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .orders li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .delivery li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .products li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul .sales_report li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .menu ul li a:hover{
+    background-repeat: no-repeat;
+    color: #9D4EDD;
+}
+
+.sideNav_frame .menu ul .user_management:hover{
+    background-repeat: no-repeat;
+}
+
+.sideNav_frame .tools ul li:hover{
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.sideNav_frame .tools ul li a:hover{
+    color: #9D4EDD;
+}
+
+/*###############################################################################################*/
+/*#######################################  O P T I O N S  #######################################*/
+/*###############################################################################################*/
+
+.order_options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 85%;
+}
+
+.order-option {
+    font-family: SF_MEDIUM;
+    font-size: 19px;
+    background-color: #ffffff;
+    color: #240046;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-option:hover {
+    background-color: #ffffff;
+}
+
+.order-option:active {
+    background-color: #ffffff;
+}
+
+/*#################################################################################################*/
+/*#######################################  P R O D U C T S  #######################################*/
+/*#################################################################################################*/
+
+.seller_orders{
+    margin-left: 20px;
+    width: 100%;
+}
+
+.orders_frame{
+    margin-top: 50px;
+}
+
+.search_frame_top{
+    width: 85%;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    padding-right: 100px;
+}
+
+.search-input {
+    width: 350px;
+    font-family: SF_regular;
+    height: 40px;
+    border: 2px solid #240046; /* Light border around the input */
+    border-radius: 100px; /* Slightly round the corners */
+    font-size: 16px; /* Set font size for input text */
+    padding-left: 20px;
+}
+
+.date_picker_frame{
+    display: flex;
+    margin-top: 5px;
+}
+
+.date_picker_from{
+    display: flex;
+    margin-right: 20px;
+}
+
+.search_frame_top .date_picker_from label{
+    margin-top: 7px;
+    font-family: SF_MEDIUM;
+    margin-right: 8px;
+}
+
+.date_from{
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #9D4EDD;
+    border-radius: 8px;
+    font-family: SF_medium;
+}
+
+.search_frame_top .date_picker_from .date_from input{
+    appearance: none;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    font-family: SF_medium;
+
+    &[type=date]{
+        width: 6.7rem;
+        padding: .25rem 0 .25rem .5rem;
+        border-right-width: 0;
+    }
+
+    &[type=time]{
+        width: 6.3rem;
+        padding: .25rem .5rem .25rem 0;
+        border-left-width: 0;
+    }
+}
+
+.date_from span{
+    height: 1rem;
+    margin-right: .25rem;
+    margin-left: .25rem;
+    border-right: 1px solid #ddd;
+
+}
+
+.date_picker_to{
+    display: flex;
+    margin-right: 20px;
+}
+
+.search_frame_top .date_picker_to label{
+    margin-top: 5px;
+    font-family: SF_MEDIUM;
+    margin-right: 8px;
+}
+
+.date_to{
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #9D4EDD;
+    border-radius: 8px;
+}
+
+.search_frame_top .date_picker_to .date_to input{
+    appearance: none;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    font-family: SF_MEDIUM;
+
+    &[type=date]{
+        width: 6.7rem;
+        padding: .25rem 0 .25rem .5rem;
+        border-right-width: 0;
+    }
+
+    &[type=time]{
+        width: 6.3rem;
+        padding: .25rem .5rem .25rem 0;
+        border-left-width: 0;
+    }
+}
+
+.date_to span{
+    height: 1rem;
+    margin-right: .25rem;
+    margin-left: .25rem;
+    border-right: 1px solid #ddd;
+
+}
+
+.filter_submit input[type=submit]{
+    width: 200px;
+    height: 30px;
+    background-color: #9D4EDD;
+    color: white;
+    border: #9D4EDD;
+    border-radius: 10px;
+    font-family: sf_medium;
+    font-size: 15px;
+}
+
+.filter_submit input[type=submit]:hover{
+    width: 200px;
+    height: 30px;
+    background-color: #b367f1;
+    color: white;
+    border: 1px solid #9D4EDD;
+    border-radius: 10px;
+    font-family: sf_medium;
+    font-size: 15px;
+}
+
+.filter_submit input[type=submit]:active{
+    width: 200px;
+    height: 30px;
+    background-color: #6d2fa0;
+    color: white;
+    border: 1px solid #9D4EDD;
+    border-radius: 10px;
+    font-family: sf_medium;
+    font-size: 15px;
+}
+
+/* Container for products list */
+.product_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    color: #240046;
+    margin-left: 378px;
+}
+
+/* Style for each product item */
+.product_item {
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Product image */
+.product_image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product name and price styles */
+.product_name {
+    font-family: "SF_BOLD";
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.product_price {
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+
+/*###############################################################################*/
+/*#########################  A D D  F O R M  P O P U P  #########################*/
+/*###############################################################################*/
+
+
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+.profile_dropdown{
+    top: 95px;
+    right: 150px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: #dddddd;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}
+
+
+/*###############################################################*/
+/*#########################  T A B L E  #########################*/
+/*###############################################################*/
+
+.orders_table{
+    width: 90%;
+}
+
+.orders_table table{
+    width: 100%;
+    font-family: sf_regular;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.orders_table thead th{
+    height: 50px;
+    border-bottom: 2px solid;
+}
+
+.orders_table tbody td{
+    height: 30px;
+    border-bottom: 1px solid;
+}

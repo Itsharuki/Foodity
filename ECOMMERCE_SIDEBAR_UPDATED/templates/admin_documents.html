@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, .1" http-equiv="refresh">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_documents.css">
+    <title>Foodity - Seller Documents</title>
+</head>
+<body onload="loading()">
+    <div class="base">
+        {% for documents in accounts %}
+        <img src="data:image/jpeg;base64, {{ documents.documents }}" class="photo_image">
+        {% endfor %}
+    </div>
+    <script>
+        window.onclick = function(event){
+            document.getElementById("base");
+        }
+    </script>
+</body>
+</html>

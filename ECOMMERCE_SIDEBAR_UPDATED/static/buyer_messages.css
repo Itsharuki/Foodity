@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*##############################################*/
+/*######### R E G U L A R  F O N T S ###########*/
+/*##############################################*/
+
+@font-face {
+    font-family: "SF_BLACK";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK.otf);
+}
+@font-face {
+    font-family: "SF_BOLD";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BOLD.OTF);
+}
+@font-face {
+    font-family: "SF_MEDIUM";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_MEDIUM.OTF);
+}
+@font-face {
+    font-family: "SF_REGULAR";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_REGULAR.OTF);
+}
+/*############## ITL = ITALIC ################*/
+@font-face {
+    font-family: "SF_SEMIBOLD_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_SEMI_BOLD_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_BLACK_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_BLACK_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_HEAVY_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_HEAVY_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_LIGHT_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_LIGHT_ITL.OTF);
+}
+@font-face {
+    font-family: "SF_THIN_ITL";
+    src: url(FONT/SF_PRO/SF_PRO_DISPLAY_THIN_ITL.OTF);
+}
+
+
+/*###############################*/
+/*#########  B O D Y  ###########*/
+/*###############################*/
+
+body {
+    background: white;
+    color: rgb(10, 6, 6);
+    width: 100%;
+}
+
+
+
+/*##########################################*/
+/*#########  B A S E  F R A M E  ###########*/
+/*##########################################*/
+
+.base{
+    width: 100%;
+}
+
+.base_frame {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*########################################*/
+/*###########  S I D E  N A V  ###########*/
+/*########################################*/
+/* Sidebar */
+.sideNav {
+    width: 15%;
+    height: 105vh;
+    background-color: white;
+    transition: width 0.3s;
+    box-shadow: 4px 0px 12px #c4c4c4;
+}
+
+.sideNav.collapsed {
+    width: 60px;
+}
+
+.sideNav_frame {
+    padding-top: 25px;
+    text-align: left; /* Align content to the left */
+}
+
+.sideNav_frame .foodity_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.foodity_logo img {
+    margin-left: -10px;
+    left: 10px;
+    width: 180px;
+    height: auto;
+}
+
+.sideNav_frame .foodity_logo .button-img {
+    margin-left: 0px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.sideNav.collapsed .foodity_logo img {
+    display: none;
+}
+
+.sideNav.collapsed .foodity_logo .button-img {
+    display: block;
+}
+
+/* Adjust the menu to display icons and text properly when expanded */
+.sideNav_frame .menu {
+    margin-top: 20px;
+}
+
+.sideNav_frame .menu ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.sideNav_frame .menu ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    display: flex; /* Use flex to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.sideNav_frame .menu ul li a {
+    display: flex;
+    align-items: center;
+    font-family: SF_REGULAR;
+    text-decoration: none;
+    color: gray;
+    width: 100%; /* Ensure full width */
+    padding: 10px 0; /* Add padding for equal height */
+    padding-left: 20px; /* Add left padding for alignment */
+}
+
+.sideNav_frame .menu ul li a img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.sideNav_frame .menu ul li a:hover,
+.sideNav_frame .menu ul li a:focus {
+
+}
+
+.sideNav_frame .menu ul li a span {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+/* Hide text when collapsed */
+.sideNav.collapsed .menu ul li a span {
+    display: none;
+}
+
+.sideNav_frame .menu ul .settings {
+}
+
+.sideNav_frame .menu ul .settings .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: none;
+    padding: 5px 0;
+    border: none;
+    width: 100%; /* Match width of parent */
+}
+
+.sideNav_frame .menu ul .settings:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    padding: 0;
+}
+
+.dropdown ul li {
+    padding: 5px 20px; /* Adjusted padding to bring items closer */
+}
+
+.dropdown ul li a {
+    color: gray;
+    text-decoration: none;
+    font-family: "SF_REGULAR";
+    font-size: 14px;
+}
+
+.dropdown ul li:not(:last-child) {
+    margin-bottom: 5px; /* Reduce space between items */
+}
+
+/* Sidebar Effects */
+.sideNav_frame .menu ul li:hover,
+.sideNav_frame .menu ul li:focus-within {
+    transform-origin: left;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+    
+}
+
+/*#####################################*/
+/*#########  P R O F I L E  ###########*/
+/*#####################################*/
+
+.profile{
+    position: fixed;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    bottom: 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 12px;
+    box-shadow: 3px 3px 6px #c4c4c4;
+}
+
+.profile .profile_info{
+    display: flex;
+    align-items: center;
+}
+
+.profile_info h1{
+    font-family: sf_regular;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.profile_pictures{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid #9D4EDD;
+}
+
+.profile .profile_button{
+    border: none;
+    width: 55px;
+    height: 55px;
+    background-color: white;
+}
+
+/*################################################*/
+/*#########  P R O F I L E  H O V E R  ###########*/
+/*################################################*/
+
+.profile:hover .profile_dropdown_content{
+    opacity: 1;
+    transition: .5s;
+}
+
+/*####################################################################################*/
+/*#########################  P R O F I L E  D R O P D O W N  #########################*/
+/*####################################################################################*/
+
+.profile_dropdown{
+    bottom: 0;
+    margin-bottom: 170px;
+    position: absolute;
+    display: inline-block;
+}
+
+.profile_dropdown_content{
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 2px 2px 4px #c4c4c4;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.profile_dropdown_content a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: sf_regular;
+}
+
+.profile_dropdown_content a:hover{
+    background-color: #9D4EDD;
+    color: white;
+    border-radius: 10px;
+}
+
+.show{
+    visibility: visible;
+    display: block;
+}
+
+
+
+
+/*####################################################################################*/
+/*##########################  M E S S A G E  D E T A I L S  ##########################*/
+/*####################################################################################*/
+
+
+.middle{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*##################################################*/
+/*#########  M E S S A G E  F R A M E  #############*/
+/*##################################################*/
+
+.message_frame{
+    width: 90%;
+    height: 90%;
+    margin: 50px;
+    padding: 30px 0px 30px 0px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+    background-color:  #F9F9F9; 
+    border-radius: 8px;
+}
+

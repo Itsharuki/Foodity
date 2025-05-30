@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/images/foodity icon.png">
+    <link rel="stylesheet" href="../static/buyer_order_details.css">
+    <title>Foodity - Buyer Details</title>
+</head>
+<body>
+
+    <div class="base">
+        <div class="base_frame">
+
+            <div class="sideNav" id="sidebar">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="../static/images/foodity_logo.png" alt="Foodity Logo" />
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="Home"><a href="/buyer_home"><img src="../static/images/buyer/sideNav/home_gray.png" alt="Home Icon"> <span>Home</span></a></li>
+                            <li class="Add to Cart"><a href="/buyer_add_to_cart"><img src="../static/images/buyer/sideNav/add_to_cart_gray.png" alt="Add Icon"> </span> <span>Add to Cart</span></a></li>
+                            <li class="Messages"><a href="/buyer_messages"><img src="../static/images/buyer/sideNav/message.png" alt="Messages Icon"> </span> <span>Messages</span></a></li>
+                            <li class="saved"><a href="/buyer_saved"><img src="../static/images/buyer/sideNav/saved_gray.png" alt="Save Icon"> </span> <span>Saved</span></a></li>
+                            <li class="Purchase History"><a href="/buyer_purchase_history"><img src="../static/images/buyer/sideNav/history_gray.png" alt="Purchase History Icon"> <span>Purchase History</span></a></li>
+                        </ul>
+                        <div class="profile">
+                            <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1>{{ user.email }}</h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/buyer_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="middle">
+                    <div class="product_page">
+                        <div class="product_page_frame">
+                            <div class="container">
+                                {% for product in products %}
+                                <div class="image-gallery">
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo1 }}">
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo2 }}">
+                                    {% if product.product_photo3 != none %}
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo3 }}">
+                                    {% elif product.product_photo4 != none %}
+                                    <img src="data:image/jpeg;base64, {{ product.product_photo4 }}">
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                                <div class="main-image">
+                                    <img id="main-product-image" src="data:image/jpeg;base64, {{ product.product_photo1 }}" alt="Main Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <h1> {{ product.product_name }} </h1>
+                                    <div class="price">₱ {{ product.product_price }} <span class="old-price">₱940.00</span></div>
+                                    <div class="description"><p> {{ product.product_description }} </p></div>
+                                    <div class="stock"><span class="stocks_number">{{ product.product_stocks }}</span> in stock</div>
+                                    <form action="/order_condition" method="POST">
+                                        <label for='order_quantity'>Quantity: </label>
+                                        <input type='number' id='order_quantity' name='order_quantity' required>
+                                        <div class="actions">
+                                            
+                                            <button class="buy-now" type="submit" id='buy' name='buy' value='Buy'>BUY NOW</button>
+                                            
+                                            <button class="add-to-cart" type="submit" id='cart' name='cart' value='Cart'>ADD TO CART</button>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="seller_container">
+                                <div class="seller_details">
+                                    {% for seller_detail in seller_details %}
+                                    <div class="seller_image">
+                                        <img class="seller_pic" src="data:image/jpeg;base64, {{ seller_detail.profile_pic }}" alt="Seller pic">
+                                    </div>
+                                    <div class="seller_name_and_button">
+                                        <div class="seller_name">
+                                            <p> {{ seller_detail.name }}
+                                                </p>
+                                        </div>
+                                        <div class="seller_message">
+                                            <button>Message now!</button>
+                                        </div>
+                                    </div>
+                                    <div class="seller_address">
+                                        <p> Address: </p>
+                                        <p> {{ seller_detail.address }} </p>
+                                    </div>
+                                    {% endfor %}
+                                    {% for product_counts in product_count %}
+                                    <div class="seller_products">
+                                        <p>Number of products:</p>
+                                        <p class="value ">{{ product_counts.product_count }} </p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        
+
+
+
+
+</body>
+</html>

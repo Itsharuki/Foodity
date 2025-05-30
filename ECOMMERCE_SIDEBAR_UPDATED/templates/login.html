@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Foodity - Login</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="static/login.css">
+
+<body>
+    <!--####################################################-->
+    <!--###############  L O G I N  F O R M  ###############-->
+    <!--####################################################-->
+    <script src="static/Javascript/login.js"></script>
+    <div class="background" id="blur">
+        <div class="login_frame" id="login">
+            <div class="login_logo_frame">
+                <img src="../static/images/foodity_logo.png" alt="Foodity">
+            </div>
+            
+            <!--<div class="login_text"> -->
+                <!--<h1>Login</h1> -->
+            <!--</div> -->
+            <form action="/login" method="POST">
+                <div class="textbox_frame">
+                    <div class="email_frame">
+                        <label for="email">Email</label> 
+                        <div class="email_box">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="password_frame">
+                        <label class="password_text" for="password">Password</label> 
+                        <div class="pass_box">
+                            <input type="password" id="pass" name="pass" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="msg">{{msg}}</div>
+                <div class="msg2">{{msg2}}</div>
+                <div class="login_button_frame">
+                    <button id="login_button" name="login_button" type="submit">Login</button>
+                </div>
+            </form>
+            <div class="forgot_pass_frame">
+                <a href="#blur" onclick="toggle()">Forgot Password?</a>
+            </div>
+            <div class="signup_frame">
+                <label for="signup">New to Foodity? </label>
+                <a name="signup" href="/register">Get started -></a>
+            </div>
+
+            <div class="links_frame">
+                <a href="">Help</a>
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!--###################################################-->
+    <!--##################  P O P U P S  ##################-->
+    <!--###################################################-->
+
+
+    <!--######################################-->
+    <!--#######  F O R G O T  P A S S  #######-->
+    <!--######################################-->
+
+<form action="/resetOTP" method="POST">
+
+    <div class="forgot_pass_popup" id="popup_forgot_pass">
+        <div class="forgot_pass_frame">
+            <div class="logo">
+                <img src="/static/images/foodity_logo.png" alt="">
+            </div>
+            <div class="forgot_pass_subframe">
+                <div class="Forgot_password_text">
+                    <h1>Forgot Password?</h1>
+                </div>
+                <div class="email_textbox">
+                    <label for="email">Email:</label>
+                    <div class="emailBox">
+                        <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+                    </div>
+                </div>
+                <form action="reset_otp" method="POST">
+                    <div class="request_button">
+                        <button id="req_button" >Request Code</button>
+                    </div>
+                <div class="cancel">
+                    <a href="">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

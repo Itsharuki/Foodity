@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_feedback.css">
+    <title>Foodity - Dashboard</title>
+</head>
+<body onload="countRow()">
+    <script src="static/Javascript/admin_dashboard.js"></script>
+
+<!--#######################################-->
+<!--##############  B A S E  ##############-->
+<!--#######################################-->
+    <div class="base">
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                    </div>
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="user_management">
+                                <li>
+                                    <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                                </li>
+                            </div>
+                            <div class="user_analytics">
+                                <li>
+                                    <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                                </li>
+                            </div>
+                            <div class="feedbacks">
+                                <li>
+                                    <a href="/feedbacks"><img src="/static/images/sideNav/feedbacks_purple.png" alt=""> Feedbacks</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/admin_sales_report"><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+        <div class="base_frame">
+
+            <!--############################################-->
+            <!--##############  T O P  N A V  ##############-->
+            <!--############################################-->
+
+            <div class="topNav">
+                <div class="topNav_frame">
+                    <div class="left">
+                        
+                    </div>
+                    <div class="right">
+                        <div class="message_square">
+                            <div class="message">
+                                <a href=""><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="notif_square">
+                            <div class="notification">
+                                <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="profile_square">
+                            <div class="profile">
+                                <div class="profile_info">
+                                    {% for user in users %}
+                                    <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                    <h1> {{ user.email }} </h1>
+                                    {% endfor %}
+                                </div>
+    
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/admin_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--#################################################-->
+        <!--##############  F E E D B A C K S  ##############-->
+        <!--#################################################-->
+        
+            <div class="feedbacks">
+                <div class="feedbacks_frame">
+                    <div class="feedbacks_text">
+                        <p>Feedbacks</p>
+                    </div>
+                    <div class="feedback_base_frame">
+                        <div class="feedback_base_subframe">
+                            <div class="feedback_left_frame">
+                        
+                            </div>
+                            <div class="feedback_scroll_frame">
+                                <div class="feedback_scroll_value">
+                                    <div class="feedback_value_frame">
+                                        <div class="feedback_image_frame">
+                                        
+                                        </div>
+                                        <div class="feedback_text_frame">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+                                    <div class="feedback_value_frame">
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="feedback_right_frame">
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

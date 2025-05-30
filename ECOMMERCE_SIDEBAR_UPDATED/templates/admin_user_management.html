@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_user_management.css">
+    <title>Foodity - User Management</title>
+</head>
+<body>
+    <script src="static/Javascript/user_management.js"></script>
+
+    <!--#####################################-->
+    <!--#############  B A S E  #############-->
+    <!--#####################################-->
+
+    <div class="base">
+
+            <!--############################################-->
+            <!--#############  S I D E  N A V  #############-->
+            <!--############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                    </div>
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">  
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="user_management">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/user_management_purple.png" alt=""> User Managements</a>
+                                </li>
+                            </div>
+                            <div class="user_analytics">
+                                <li>
+                                    <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                                </li>
+                            </div>
+                            <div class="feedbacks">
+                                <li>
+                                    <a href="/feedbacks"><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/admin_sales_report"><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        <!--################################################-->
+        <!--#############  B A S E  F R A M E  #############-->
+        <!--################################################-->
+
+        <div class="base_frame">
+
+            <!--##########################################-->
+            <!--#############  T O P  N A V  #############-->
+            <!--##########################################-->
+
+            <div class="topNav">
+                <div class="topNav_frame">
+                    <div class="left">
+                        
+                    </div>
+                    <div class="right">
+                        <div class="message_square">
+                            <div class="message">
+                                <img src="/static/images/admin/dashboard/messages.png" alt="">
+                            </div>
+                        </div>
+                        <div class="notif_square">
+                            <div class="notification">
+                                <img src="/static/images/admin/dashboard/notif.png" alt="">
+                            </div>
+                        </div>
+                        <div class="profile_square">
+                            <div class="profile">
+                                <div class="profile_info">
+                                    {% for user in users %}
+                                    <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                    <h1> {{ user.email }} </h1>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/admin_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--##########################################################-->
+            <!--#############  U S E R  M A N A G E M E N T  #############-->
+            <!--##########################################################-->
+
+            <div class="user_management">
+                <div class="user_management_frame">
+                    <div class="user_management_background">
+                        <div class="user_management_text">
+                            <p>User Management</p>
+                        </div>
+                        <!--###########################################-->
+                        <!--##############  F I L T E R  ##############-->
+                        <!--###########################################-->
+    
+                        <div class="filter_frame">
+                            <div class="filter">
+                                <div class="filter_button">
+                                    <button class="button_filter"></button>
+    
+                                    <!--############################################################-->
+                                    <!--##############  F I L T E R  D R O P  D O W N ##############-->
+                                    <!--############################################################-->
+    
+                                    <div class="filter_dropdown">
+                                        <div id="dropdown_filter" class="filter_dropdown_content">
+                                            <a  href="/user_management/filter_buyer">buyer</a>
+                                            <a  href="/user_management/filter_seller">seller</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="search_frame">
+                                    <div class="search_bar">
+                                        <input type="text" placeholder="Search">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <!--#########################################-->
+                            <!--##############  T A B L E  ##############-->
+                            <!--#########################################-->
+                            
+                        <div class="user_management_table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Account Type</th>
+                                        <th>Documents</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in accounts %}
+                                    <tr>
+                                        <td> {{ user.name }} </td>
+                                        <td> {{ user.email }} </td>
+                                        <td> {{ user.account_type }} </td>
+                                        <td>
+                                            <span class=images_box>
+                                                <span class=valid_id>
+                                                    <a href="/user_management/valid_id/{{ user.accounts_id }}" target="_blank" rel="noopener noreferrer"><img src="data:image/jpeg;base64, {{ user.valid_id }}" class="photo_image"></a>
+                                                </span>
+                                                <span class=documents>
+                                                    <a href="/user_management/documents/{{ user.accounts_id }}" target="_blank" rel="noopener noreferrer"><img src="data:image/jpeg;base64, {{ user.documents }}" class="photo_image"></a>
+                                                </span>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            {% if user.status == 1 %}
+                                            <span class='active'>Active</span>
+                                            {% elif user.status == 3 %}
+                                            <span class='restricted'>Restricted</span>
+                                            {% elif user.status == 2 %}
+                                            <span class='disapprove'>Pending</span>
+                                            {% else %}
+                                            <span class='inactive'>Inactive</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                        <div class="actions">
+                                            {% if user.status == 1 %}
+                                            <span class="approved_text">APPROVED</span>
+                                            {% elif user.status == 2 %}
+                                            <div class="approveAction">
+                                                <a href="/user_management/user_approve/{{user.accounts_id}}">
+                                                <img src="/static/images/admin/user_approval/approve.png" alt="approve">
+                                                </a>
+                                            </div>
+                                            <div class="declineAction">
+                                                <a href="/user_management/user_disapprove/{{user.accounts_id}}">
+                                                <img src="/static/images/admin/user_approval/decline.png" alt="decline">
+                                                </a>
+                                            </div>
+                                            {% elif user.status == 3 %}
+                                            <span class="restricted_text">RESTRICTED</span>
+                                            {% else %}
+                                            <div class="approveAction">
+                                                <a href="/user_management/user_approve/{{user.accounts_id}}">
+                                                <img src="/static/images/admin/user_approval/approve.png" alt="approve">
+                                                </a>
+                                            </div>
+                                            <div class="declineAction">
+                                                <a href="/user_management/user_disapprove/{{user.accounts_id}}">
+                                                <img src="/static/images/admin/user_approval/decline.png" alt="decline">
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        </td>
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--######################################################-->
+                    <!--##############  B O T T O M  T A B L E  ##############-->
+                    <!--######################################################-->
+
+
+                    <div class="bottom_table_frame">
+
+                        <!--##########################################################-->
+                        <!--##############  A P P R O V E D  T A B L E  ##############-->
+                        <!--##########################################################-->
+
+                        <div class="approved_accounts_back  ground">
+                            <div class='accounts_approved'>
+                                <p>Approved accounts</p>
+                            </div>
+                            <div class="approved_table_subframe">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Account Type</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in approved_accounts %}
+                                        <tr>
+                                            <td> {{ user.name }} </td>
+                                            <td> {{ user.email }} </td>
+                                            <td> {{ user.account_type }} </td>
+                                            <td>
+                                                {% if user.status == 1 %}
+                                                <span class='active'>Active</span>
+                                                {% else %}
+                                                <span class='inactive'>Inactive</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                            <div class="actions">
+                                                <div class="restrict">
+                                                    <a href="/user_management/user_restrict/{{user.accounts_id}}">
+                                                    <img src="/static/images/admin/user_management/restrict.png" alt="Delete">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!--##############################################################-->
+                        <!--##############  R E S T R I C T E D  T A B L E  ##############-->
+                        <!--##############################################################-->
+
+                        <div class="restricted_accounts_background">
+                            <div class=accoounts_restricted>
+                                <p>Restricted Accounts</p>
+                            </div>
+                            <div class="restricted_table_frame">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Account Type</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in restricted_accounts %}
+                                        <tr>
+                                            <td> {{ user.name }} </td>
+                                            <td> {{ user.email }} </td>
+                                            <td> {{ user.account_type }} </td>
+                                            <td>
+                                                {% if user.status == 1 %}
+                                                <span class='active'>Active</span>
+                                                {% elif user.status == 3 %}
+                                                <span class='restricted'>Restricted</span>
+                                                {% elif user.status == 2 %}
+                                                {% else %}
+                                                <span class='inactive'>Inactive</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                            <div class="actions">
+                                                <div class="unrestrict">
+                                                    <a href="/user_management/user_approve/{{user.accounts_id}}">
+                                                    <img src="/static/images/admin/user_management/unlock.png" alt="Unrestrict"></a>
+                                                </div>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

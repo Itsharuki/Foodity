@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_settings.css">
+    <title>Foodity - Settings</title>
+</head>
+<body onload="countRow()">
+    <script src="static/Javascript/settings.js"></script>
+    
+    <!--############################################-->
+    <!--##############  N A V  B A R  ##############-->
+    <!--############################################-->
+
+    <div class="topNav">
+        <div class="topNav_frame">
+            <div class="left">
+                <div class="foodity_logo">
+                    <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <div class="message">
+                    <a href=""><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                </div>
+                <div class="notification">
+                    <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                </div>
+                <div class="profile">
+                    <button  class="profile_button"></button>
+
+                    <!--##############################################################-->
+                    <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                    <!--##############################################################-->
+
+                    <div class="profile_dropdown">
+                        <div id="dropdown_profile" class="profile_dropdown_content">
+                            <a  href="">Edit Profile</a>
+                            <a  href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+    <div class="base">
+        <div class="base_frame">
+
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/dashboard"><img src="/static/images/sideNav/dashboard.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="user_management">
+                                <li>
+                                    <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                                </li>
+                            </div>
+                            <div class="seller_approvals">
+                                <li>
+                                    <a href="/user_approvals"><img src="/static/images/sideNav/seller_approval.png" alt=""> Seller Approvals</a>
+                                </li>
+                            </div>
+                            <div class="user_analytics">
+                                <li>
+                                    <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                                </li>
+                            </div>
+                            <div class="feedbacks">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="toolsText">
+                        <p>Tools</p>
+                    </div>
+                    <div class="tools">
+                        <ul>
+                            <div class="settings">
+                                <li>
+                                    <a href=""><img src="/static/images/sideNav/settings_purple.png" alt=""> Settings</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        <!--###############################################-->
+        <!--##############  S E T T I N G S  ##############-->
+        <!--###############################################-->
+        
+            <div class="settings">
+                <div class="settings_frame">
+                    <div class="settings_text">
+                        <p>Account Settings</p>
+                    </div>
+                        <!--################################################################-->
+                        <!--##############  S E T T I N G S  S U B F R A M E  ##############-->
+                        <!--################################################################-->
+
+                    <div class="settings_subFrame">
+                        <div class="settings_subFrame_square">
+                            <div class="edit_profile_panel">
+                                <a href="">Edit Profile  </a>
+                                <span>></span>
+                            </div>
+                            <div class="change_password_panel">
+                                <a href="">Change Password </a>
+                                <span>></span>
+                            </div>
+                            <div class="panel">
+                                <a href="">Panel</a>
+                                <span>></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--#########################################-->
+                    <!--##############  T A B L E  ##############-->
+                    <!--#########################################-->
+
+
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

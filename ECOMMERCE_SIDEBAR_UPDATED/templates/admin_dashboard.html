@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/images/foodity icon.png">
+    <link rel="stylesheet" href="/static/admin_dashboard.css">
+    <title>Foodity - Dashboard</title>
+</head>
+<body onload="countRow()">
+    <script src="static/Javascript/admin_dashboard.js"></script>
+
+<!--#######################################-->
+<!--##############  B A S E  ##############-->
+<!--#######################################-->
+    <div class="base">
+            <!--##############################################-->
+            <!--##############  S I D E  N A V  ##############-->
+            <!--##############################################-->
+
+            <div class="sideNav">
+                <div class="sideNav_frame">
+                    <div class="foodity_logo">
+                        <img src="/static/images/admin/dashboard/foodity_logo.png" alt="">
+                    </div>
+                    <div class="menuText">
+                        <p>Menu</p>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <div class="dashboard">
+                                <li>
+                                <a href="/dashboard"><img src="/static/images/sideNav/dashboard_purple.png" alt=""> Dashboard</a>
+                                </li>
+                            </div>
+                            <div class="user_management">
+                                <li>
+                                    <a href="/user_management"><img src="/static/images/sideNav/user_management.png" alt=""> User Managements</a>
+                                </li>
+                            </div>
+                            <div class="user_analytics">
+                                <li>
+                                    <a href="/user_logs"><img src="/static/images/sideNav/user_analytics.png" alt=""> User Logs</a>
+                                </li>
+                            </div>
+                            <div class="feedbacks">
+                                <li>
+                                    <a href="/feedbacks"><img src="/static/images/sideNav/feedbacks.png" alt=""> Feedbacks</a>
+                                </li>
+                            </div>
+                            <div class="sales_report">
+                                <li>
+                                    <a href="/admin_sales_report"><img src="/static/images/sideNav/sales_report.png" alt="">Sales Report</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+<!--#################################################-->
+<!--##############  B A S E  F R A M E ##############-->
+<!--#################################################-->
+
+        <div class="base_frame">
+
+            <!--############################################-->
+            <!--##############  T O P  N A V  ##############-->
+            <!--############################################-->
+
+            <div class="topNav">
+                <div class="topNav_frame">
+                    <div class="left">
+                        
+                    </div>
+                    <div class="right">
+                        <div class="message_square">
+                            <div class="message">
+                                <a href=""><img src="/static/images/admin/dashboard/messages.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="notif_square">
+                            <div class="notification">
+                                <a href=""><img src="/static/images/admin/dashboard/notif.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="profile_square">
+                            <div class="profile">
+                                <div class="profile_info">
+                                {% for user in users %}
+                                <button  class="profile_button"><img src="data:image/jpeg;base64, {{ user.profile_pic }}" class="profile_pictures"></button>
+                                <h1> {{ user.email }} </h1>
+                                {% endfor %}
+                                </div>
+                                <!--##############################################################-->
+                                <!--##############  P R O F I L E  D R O P  D O W N ##############-->
+                                <!--##############################################################-->
+    
+                                <div class="profile_dropdown">
+                                    <div id="dropdown_profile" class="profile_dropdown_content">
+                                        <a  href="/admin_edit_profile">Edit Profile</a>
+                                        <a  href="/logout">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--#################################################-->
+        <!--##############  D A S H B O A R D  ##############-->
+        <!--#################################################-->
+        
+            <div class="dashboard">
+                <div class="dashboard_frame">
+                    <div class="dashboard_text">
+                        <p>Dashboard</p>
+                    </div>
+                    <div class="dashboard_body">
+                        <div class="dashboard_line_1">
+                            <div class="dashboard_total_seller_frame">
+                                <div class="total_seller_image">
+                                    <img src="/static/images/admin/dashboard/total_seller.png" alt="total_seller">
+                                </div>
+                                <div class="total_seller_text">
+                                    <p>Total Seller Accounts</p>
+                                </div>
+                                <div class="total_seller_percentage">
+                                    <p>+10% new users</p>
+                                </div>
+                                <div class="total_seller_accounts">
+                                    <p id="sellerCount"></p>
+                                </div>
+                            </div>
+                            <div class="dashboard_total_buyer_frame">
+                                <div class="total_buyer_image">
+                                    <img src="/static/images/admin/dashboard/total_buyer.png" alt="total_buyer">
+                                </div>
+                                <div class="total_buyer_text">
+                                    <p>Total Buyer Accounts</p>
+                                </div>
+                                <div class="total_buyer_percentage">
+                                    <p>+10% new users</p>
+                                </div>
+                                <div class="total_buyer_accounts">
+                                    <p id="buyerCount"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard_line_2">
+                            <div class="total_admin_commission_frame">
+                                <div class="total_admin_commission_image">
+                                    <img src="/static/images/admin/dashboard/total_commission.png" alt="total_commission">
+                                </div>
+                                <div class="total_admin_commission_text">
+                                    <p>Total Admin Commission</p>
+                                </div>
+                                <div class="total_admin_commission_percentage">
+                                    <p></p>
+                                </div>
+                                <div class="total_admin_commission_accounts">
+                                    {% for com in admin_com %}
+                                    <p>₱ {{ com.commission }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="total_gross_frame">
+                                <div class="total_gross_image">
+                                    <img src="/static/images/admin/dashboard/total_gross.png" alt="total_gross">
+                                </div>
+                                <div class="total_gross_text">
+                                    <p>Total Gross</p>
+                                </div>
+                                <div class="total_gross_percentage">
+                                    <p></p>
+                                </div>
+                                {% for orders in order %}
+                                <div class="total_gross_accounts">
+                                    <p>₱ {{ orders.orders }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--######################################################-->
+<!--##############  H I D D E N  T A B L E  ##############-->
+<!--######################################################-->
+
+<div class="seller_table">
+    <table id="seller_table_id">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Account Type</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in sellers %}
+            <tr>
+                <td> {{ user.name }} </td>
+                <td> {{ user.email }} </td>
+                <td> {{ user.account_type }} </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="buyer_table">
+    <table id="buyer_table_id">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Account Type</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in buyers %}
+            <tr>
+                <td> {{ user.name }} </td>
+                <td> {{ user.email }} </td>
+                <td> {{ user.account_type }} </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
