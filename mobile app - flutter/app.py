@@ -33,7 +33,7 @@ def get_db_connection():
         conn = mysql.connector.connect(
             host="localhost",    # Change if your DB is hosted elsewhere
             user="root",         # Replace with your DB user
-            password="haruki1315",         # Replace with your DB password
+            password="",         # Replace with your DB password
             database="foodity"  # Your database name
         )
         return conn
